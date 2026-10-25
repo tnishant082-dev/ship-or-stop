@@ -1,4 +1,4 @@
-﻿# ship-or-stop
+# ship-or-stop
 
 **Experimentation program analytics on 78 real A/B tests from ASOS.com.**
 Most A/B-test projects analyse one experiment. This one audits the *program* that runs them. It asks whether
@@ -106,6 +106,33 @@ Sensitivity, Decision Memo. All 15 are in [`screenshots/powerbi/`](screenshots/p
 Every step was run from the VS Code integrated terminal (more in [`screenshots/vscode/`](screenshots/vscode)).
 The walkthrough video [`media/ship-or-stop-walkthrough.mp4`](media/ship-or-stop-walkthrough.mp4) goes through
 the files in VS Code first, then every Power BI page.
+
+### All screenshots and the video
+
+- Video (VS Code files walkthrough, then all 15 Power BI pages): [media/ship-or-stop-walkthrough.mp4](media/ship-or-stop-walkthrough.mp4)
+- VS Code:
+  - [project and pipeline](screenshots/vscode/01_project_and_pipeline.png)
+  - [kpi crosscheck](screenshots/vscode/02_kpi_crosscheck.png)
+  - [sql verdict engine](screenshots/vscode/02_sql_verdict_engine.png)
+  - [stats sequential](screenshots/vscode/03_stats_sequential.png)
+  - [tests passing](screenshots/vscode/04_tests_passing.png)
+  - [decision memo](screenshots/vscode/05_decision_memo.png)
+- Power BI:
+  - [01 program overview](screenshots/powerbi/01_program_overview.png)
+  - [02 program metric tree](screenshots/powerbi/02_program_metric_tree.png)
+  - [03 data quality and lineage](screenshots/powerbi/03_data_quality_and_lineage.png)
+  - [04 experiment catalog](screenshots/powerbi/04_experiment_catalog.png)
+  - [05 sample ratio health](screenshots/powerbi/05_sample_ratio_health.png)
+  - [06 the peeking problem](screenshots/powerbi/06_the_peeking_problem.png)
+  - [07 checkpoint explorer](screenshots/powerbi/07_checkpoint_explorer.png)
+  - [08 sequential rules compared](screenshots/powerbi/08_sequential_rules_compared.png)
+  - [09 guardrails and verdicts](screenshots/powerbi/09_guardrails_and_verdicts.png)
+  - [10 winners and losers](screenshots/powerbi/10_winners_and_losers.png)
+  - [11 winners curse and shrinkage](screenshots/powerbi/11_winners_curse_and_shrinkage.png)
+  - [12 heterogeneity by experiment type](screenshots/powerbi/12_heterogeneity_by_experiment_type.png)
+  - [13 metric co movement and early reads](screenshots/powerbi/13_metric_co_movement_and_early_reads.png)
+  - [14 decision sensitivity](screenshots/powerbi/14_decision_sensitivity.png)
+  - [15 decision memo](screenshots/powerbi/15_decision_memo.png)
 
 ## Run it
 

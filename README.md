@@ -104,12 +104,12 @@ Sensitivity, Decision Memo. All 15 are in [`screenshots/powerbi/`](screenshots/p
 ![VS Code](screenshots/vscode/01_project_and_pipeline.png)
 
 Every step was run from the VS Code integrated terminal (more in [`screenshots/vscode/`](screenshots/vscode)).
-The walkthrough video [`media/ship-or-stop-walkthrough.mp4`](media/ship-or-stop-walkthrough.mp4) goes through
-the files in VS Code first, then every Power BI page.
+The walkthrough video [`media/ship-or-stop-walkthrough.mp4`](media/ship-or-stop-walkthrough.mp4) is about 3.5 minutes,
+narrated by me on camera. It goes through the files in VS Code first, then every Power BI page.
 
 ### All screenshots and the video
 
-- Video (VS Code files walkthrough, then all 15 Power BI pages): [media/ship-or-stop-walkthrough.mp4](media/ship-or-stop-walkthrough.mp4)
+- Video (narrated by me on camera: VS Code files, then all 15 Power BI pages): [media/ship-or-stop-walkthrough.mp4](media/ship-or-stop-walkthrough.mp4)
 - VS Code:
   - [project and pipeline](screenshots/vscode/01_project_and_pipeline.png)
   - [kpi crosscheck](screenshots/vscode/02_kpi_crosscheck.png)

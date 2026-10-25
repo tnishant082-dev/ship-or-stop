@@ -1,0 +1,109 @@
+/// How well an early read predicts the final result
+table early_read
+	lineageTag: 6d907667-00d3-5a01-942c-e448910c2315
+
+	column read_day
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8e0aeb76-144d-5d13-a143-c06c9eb85515
+		summarizeBy: none
+		sourceColumn: read_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column early_metric
+		dataType: int64
+		formatString: 0
+		lineageTag: 60b6c7aa-80d0-59c6-a7a2-13efddabf259
+		summarizeBy: none
+		sourceColumn: early_metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_metric
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ab5a52d-18f6-5c38-8d16-a5d522b11e0e
+		summarizeBy: none
+		sourceColumn: final_metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9df6d502-752d-5b50-83c5-628720d3f6c8
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column z_corr
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 87f616d8-5b38-5c2f-804e-3df4a30e1cef
+		summarizeBy: none
+		sourceColumn: z_corr
+
+		annotation SummarizationSetBy = Automatic
+
+	column sign_agreement_when_final_sig
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 62815557-2c35-56d9-a9ec-1a36d1fc777b
+		summarizeBy: none
+		sourceColumn: sign_agreement_when_final_sig
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_sig_early
+		dataType: double
+		formatString: 0.00%
+		lineageTag: b770ec16-6285-593d-93fe-3f9411d09961
+		summarizeBy: none
+		sourceColumn: share_sig_early
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_early_sig_not_final
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 367fe910-a4a9-5b20-9af0-f7925d81abe4
+		summarizeBy: none
+		sourceColumn: share_early_sig_not_final
+
+		annotation SummarizationSetBy = Automatic
+
+	column early_metric_name
+		dataType: string
+		lineageTag: 44f886d6-99c4-5f2f-8df5-00a0237548dd
+		summarizeBy: none
+		sourceColumn: early_metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_metric_name
+		dataType: string
+		lineageTag: 14364ccb-4d79-5c3c-9ac3-f5a5e87cf2c2
+		summarizeBy: none
+		sourceColumn: final_metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column read_label
+		dataType: string
+		lineageTag: 0c8a8972-5a2f-50f7-8eed-2aef0808ae36
+		summarizeBy: none
+		sourceColumn: read_label
+
+		annotation SummarizationSetBy = Automatic
+
+	partition early_read = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "early_read"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"read_day", type number}, {"early_metric", Int64.Type}, {"final_metric", Int64.Type}, {"arms", Int64.Type}, {"z_corr", type number}, {"sign_agreement_when_final_sig", type number}, {"share_sig_early", type number}, {"share_early_sig_not_final", type number}, {"early_metric_name", type text}, {"final_metric_name", type text}, {"read_label", type text}} )
+				in
+				    Typed

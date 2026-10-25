@@ -1,0 +1,40 @@
+/// A/A replay on the real checkpoint schedules, false positive rate per stopping rule
+table null_fpr
+	lineageTag: 12788fe5-d746-5ccf-b442-ddbaaa93a55e
+
+	column rule
+		dataType: string
+		lineageTag: 1dffceba-fb99-5766-b625-cb15adbca2c9
+		summarizeBy: none
+		sourceColumn: rule
+		sortByColumn: rule_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 14243e6d-94fd-5055-a40e-946429df0dfe
+		summarizeBy: none
+		sourceColumn: rule_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column false_positive_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 37af8fe8-05ba-5275-a701-7e6541e842b8
+		summarizeBy: none
+		sourceColumn: false_positive_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition null_fpr = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "null_fpr"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"rule", type text}, {"rule_order", Int64.Type}, {"false_positive_rate", type number}} )
+				in
+				    Typed

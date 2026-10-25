@@ -1,0 +1,75 @@
+/// How often each metric detects an effect
+table metric_sensitivity
+	lineageTag: da6fd2b9-907f-52e0-8a27-c9cb6eff7254
+
+	column metric_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b017024-4911-590b-ad53-be2de639904c
+		summarizeBy: none
+		sourceColumn: metric_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: bcca6420-12b4-5dd4-a0e7-56f3b85527df
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 53cdfa46-08b8-5989-8314-8cf8c7dd3b1c
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_significant
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 10aa5534-f2c8-5310-840e-17e7ce09561e
+		summarizeBy: none
+		sourceColumn: share_significant
+
+		annotation SummarizationSetBy = Automatic
+
+	column share_significant_holm
+		dataType: double
+		formatString: 0.00%
+		lineageTag: edcfe40f-594d-597b-9ad5-86548ea8d845
+		summarizeBy: none
+		sourceColumn: share_significant_holm
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_abs_z
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 886cb8da-4598-5668-98e6-f65ec0b1c4c1
+		summarizeBy: none
+		sourceColumn: median_abs_z
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_mde_rel
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5ef26773-4d21-51a8-8471-8194e6b7e144
+		summarizeBy: none
+		sourceColumn: median_mde_rel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition metric_sensitivity = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "metric_sensitivity"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"metric_id", Int64.Type}, {"metric_name", type text}, {"arms", Int64.Type}, {"share_significant", type number}, {"share_significant_holm", type number}, {"median_abs_z", type number}, {"median_mde_rel", type number}} )
+				in
+				    Typed

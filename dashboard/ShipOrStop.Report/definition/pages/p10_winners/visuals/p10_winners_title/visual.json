@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p10_winners_title",
+  "position": {
+    "x": 20,
+    "y": 2,
+    "z": 0,
+    "width": 1880,
+    "height": 86,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Winners & Losers",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Primary-metric relative lift with 95% CI for every arm that got a SHIP or STOP verdict",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

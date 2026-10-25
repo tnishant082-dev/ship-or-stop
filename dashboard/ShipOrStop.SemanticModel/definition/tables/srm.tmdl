@@ -1,0 +1,109 @@
+/// Sample ratio per arm at the final checkpoint
+table srm
+	lineageTag: a0e5408e-1a62-51a5-a035-456d587cd469
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: 1c3ddc1f-998e-5290-852e-6d7081e09035
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column experiment_id
+		dataType: string
+		formatString: 0
+		lineageTag: 967f4391-7242-50a9-90cf-aaf3c3bae1b6
+		summarizeBy: none
+		sourceColumn: experiment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column variant_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e8a1dc29-b1bf-51b8-9ade-793010e3e874
+		summarizeBy: none
+		sourceColumn: variant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_c
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2fcebdd7-c6b8-54b2-8a9d-744a11952a6c
+		summarizeBy: none
+		sourceColumn: n_c
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_t
+		dataType: int64
+		formatString: #,0
+		lineageTag: 41fda644-b306-5384-b57c-5ccc95e55199
+		summarizeBy: none
+		sourceColumn: n_t
+
+		annotation SummarizationSetBy = Automatic
+
+	column treatment_share
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 8be47bfd-464b-529c-abcb-f0dc1a162a0e
+		summarizeBy: none
+		sourceColumn: treatment_share
+
+		annotation SummarizationSetBy = Automatic
+
+	column chi_sq
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6ffe7b45-e9d6-56b1-b6f8-eace7319e9a8
+		summarizeBy: none
+		sourceColumn: chi_sq
+
+		annotation SummarizationSetBy = Automatic
+
+	column srm_p
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: 92d6bb70-910b-5f9d-a478-408884e9c97c
+		summarizeBy: none
+		sourceColumn: srm_p
+
+		annotation SummarizationSetBy = Automatic
+
+	column allocation_unknown
+		dataType: boolean
+		lineageTag: d124106a-b7ec-52eb-bdd1-a5ca5c1939a3
+		summarizeBy: none
+		sourceColumn: allocation_unknown
+
+		annotation SummarizationSetBy = Automatic
+
+	column srm_flag
+		dataType: boolean
+		lineageTag: 2d2d91c7-d6c6-52d4-93e6-090963f6c643
+		summarizeBy: none
+		sourceColumn: srm_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column ratio_status
+		dataType: string
+		lineageTag: 1b7e6e06-277d-50b1-b72f-e889eb96fbe0
+		summarizeBy: none
+		sourceColumn: ratio_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition srm = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "srm"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"arm_id", type text}, {"experiment_id", type text}, {"variant_id", Int64.Type}, {"n_c", Int64.Type}, {"n_t", Int64.Type}, {"treatment_share", type number}, {"chi_sq", type number}, {"srm_p", type number}, {"allocation_unknown", type logical}, {"srm_flag", type logical}, {"ratio_status", type text}} )
+				in
+				    Typed

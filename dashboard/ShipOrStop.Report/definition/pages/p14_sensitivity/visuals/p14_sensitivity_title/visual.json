@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p14_sensitivity_title",
+  "position": {
+    "x": 20,
+    "y": 2,
+    "z": 0,
+    "width": 1880,
+    "height": 86,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Decision Sensitivity",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Same 99 arms, re-decided under 3 alphas x 5 guardrail margins. Shows which conclusions survive a change of policy",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

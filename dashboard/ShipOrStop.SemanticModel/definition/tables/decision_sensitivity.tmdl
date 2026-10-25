@@ -1,0 +1,64 @@
+/// Verdict counts over alpha x guardrail margin
+table decision_sensitivity
+	lineageTag: e4d4981b-c901-5211-91ab-bdcedda3c80a
+
+	column alpha
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 754949b8-2256-5592-a3f3-a195cab0860d
+		summarizeBy: none
+		sourceColumn: alpha
+
+		annotation SummarizationSetBy = Automatic
+
+	column ni_margin
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 5ec84ad2-3c12-536a-968c-f9d3e924e50f
+		summarizeBy: none
+		sourceColumn: ni_margin
+
+		annotation SummarizationSetBy = Automatic
+
+	column verdict
+		dataType: string
+		lineageTag: 1dc0f7b5-da76-5c20-8427-320bd57aa8d9
+		summarizeBy: none
+		sourceColumn: verdict
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9b2f5cda-02fd-56a0-a8bc-cb213cb7ed81
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column alpha_label
+		dataType: string
+		lineageTag: 6351f766-1b4a-5aee-aa54-231982bb2ce9
+		summarizeBy: none
+		sourceColumn: alpha_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column margin_label
+		dataType: string
+		lineageTag: edf8e6aa-6b25-5355-add1-c454b269d9ff
+		summarizeBy: none
+		sourceColumn: margin_label
+
+		annotation SummarizationSetBy = Automatic
+
+	partition decision_sensitivity = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "decision_sensitivity"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"alpha", type number}, {"ni_margin", type number}, {"verdict", type text}, {"arms", Int64.Type}, {"alpha_label", type text}, {"margin_label", type text}} )
+				in
+				    Typed

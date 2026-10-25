@@ -1,0 +1,48 @@
+/// Verdicts across the portfolio
+table verdict_counts
+	lineageTag: 40b33565-5a69-5edc-ac9d-890e78e912ae
+
+	column verdict
+		dataType: string
+		lineageTag: e7354e03-6a45-5545-bd75-77337aa7a73e
+		summarizeBy: none
+		sourceColumn: verdict
+		sortByColumn: verdict_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column outcome
+		dataType: string
+		lineageTag: 3218b7a5-e958-53e4-9e4e-183fff0913c3
+		summarizeBy: none
+		sourceColumn: outcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3e4ef666-7426-50fc-bcf0-ed8288f6fa8b
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column verdict_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 33dfe338-854b-5126-97c3-311ecd586956
+		summarizeBy: none
+		sourceColumn: verdict_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition verdict_counts = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "verdict_counts"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"verdict", type text}, {"outcome", type text}, {"arms", Int64.Type}, {"verdict_order", Int64.Type}} )
+				in
+				    Typed

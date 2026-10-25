@@ -1,0 +1,75 @@
+/// Between-experiment spread of true effects (DerSimonian-Laird)
+table heterogeneity
+	lineageTag: 2c9d5942-9c4d-539f-a37b-3f147cdaecf3
+
+	column metric_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e71cbb42-2f84-58cf-917c-e2b3c1ec7cbb
+		summarizeBy: none
+		sourceColumn: metric_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 373d93e8-ee51-5f50-b075-de3b62851514
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column pooled_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: ec9a96ee-7d2c-5f9f-9d5a-3c46ac565655
+		summarizeBy: none
+		sourceColumn: pooled_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column tau
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 68128ab1-c046-5bb3-9e73-3d93e757fe7d
+		summarizeBy: none
+		sourceColumn: tau
+
+		annotation SummarizationSetBy = Automatic
+
+	column i2
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 3e0c54e2-bde1-526a-8e19-b6dc8b10fb84
+		summarizeBy: none
+		sourceColumn: i2
+
+		annotation SummarizationSetBy = Automatic
+
+	column q
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: af64a98c-7eab-5279-8d50-f4174bf193fd
+		summarizeBy: none
+		sourceColumn: q
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: 115f5bec-ac33-5d51-ab74-964931877abe
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition heterogeneity = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "heterogeneity"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"metric_id", Int64.Type}, {"arms", Int64.Type}, {"pooled_lift", type number}, {"tau", type number}, {"i2", type number}, {"q", type number}, {"metric_name", type text}} )
+				in
+				    Typed

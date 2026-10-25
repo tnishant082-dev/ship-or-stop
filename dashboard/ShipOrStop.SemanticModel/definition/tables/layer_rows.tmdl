@@ -1,0 +1,47 @@
+/// Row counts per warehouse layer
+table layer_rows
+	lineageTag: e3428878-0b39-594d-9ff0-52905bffaad9
+
+	column layer
+		dataType: string
+		lineageTag: 2ba86c88-5a8a-588d-a69b-27e05e48d867
+		summarizeBy: none
+		sourceColumn: layer
+
+		annotation SummarizationSetBy = Automatic
+
+	column layer_order
+		dataType: int64
+		formatString: 0
+		lineageTag: fe579265-42ab-50e0-a32a-c1ebd37b1fca
+		summarizeBy: none
+		sourceColumn: layer_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column object
+		dataType: string
+		lineageTag: 63c38948-19dd-5851-a6f2-897fd8e24c09
+		summarizeBy: none
+		sourceColumn: object
+
+		annotation SummarizationSetBy = Automatic
+
+	column row_count
+		dataType: int64
+		formatString: #,0
+		lineageTag: 04fbb6af-bf73-5273-a0d7-4bd8e16c38ca
+		summarizeBy: none
+		sourceColumn: row_count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition layer_rows = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "layer_rows"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"layer", type text}, {"layer_order", Int64.Type}, {"object", type text}, {"row_count", Int64.Type}} )
+				in
+				    Typed

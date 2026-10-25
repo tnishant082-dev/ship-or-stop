@@ -1,0 +1,9 @@
+expression PgServer = "localhost:5432" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: f00c5ee4-f179-5ee8-a4c4-d2931a27af13
+
+	annotation PBI_ResultType = Text
+
+expression PgDatabase = "ship_or_stop" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: 463cb473-fca0-58eb-b818-2202361e4011
+
+	annotation PBI_ResultType = Text

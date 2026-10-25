@@ -1,0 +1,83 @@
+/// Correlation of treatment-effect z between metric pairs
+table metric_comovement
+	lineageTag: 244decba-4381-59d9-99b6-3a7b321f53f0
+
+	column metric_a
+		dataType: int64
+		formatString: 0
+		lineageTag: 109a6203-74ac-511e-bec0-06d477fdfafc
+		summarizeBy: none
+		sourceColumn: metric_a
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_b
+		dataType: int64
+		formatString: 0
+		lineageTag: 381609d0-1632-55d7-90b6-784bef792cd4
+		summarizeBy: none
+		sourceColumn: metric_b
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_a_name
+		dataType: string
+		lineageTag: 35bb46f8-a924-5b24-9a38-e7935442cdf4
+		summarizeBy: none
+		sourceColumn: metric_a_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_b_name
+		dataType: string
+		lineageTag: 86636c50-4294-5258-b909-d11a57ea1be1
+		summarizeBy: none
+		sourceColumn: metric_b_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column z_corr
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 6a47197e-4d53-5ace-b42a-c1a88dc74760
+		summarizeBy: none
+		sourceColumn: z_corr
+
+		annotation SummarizationSetBy = Automatic
+
+	column sign_agreement
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 42543a20-4d42-5d05-93a5-ffbacf05cb2f
+		summarizeBy: none
+		sourceColumn: sign_agreement
+
+		annotation SummarizationSetBy = Automatic
+
+	column significance_agreement
+		dataType: double
+		formatString: 0.00%
+		lineageTag: b6d21455-c36c-5ffa-b9ee-afdc24770921
+		summarizeBy: none
+		sourceColumn: significance_agreement
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 59135f78-c215-594a-8aa9-e7b75ebfa400
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	partition metric_comovement = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "metric_comovement"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"metric_a", Int64.Type}, {"metric_b", Int64.Type}, {"metric_a_name", type text}, {"metric_b_name", type text}, {"z_corr", type number}, {"sign_agreement", type number}, {"significance_agreement", type number}, {"arms", Int64.Type}} )
+				in
+				    Typed

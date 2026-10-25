@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p15_memo_text1",
+  "position": {
+    "x": 20,
+    "y": 100,
+    "z": 501,
+    "width": 1880,
+    "height": 956,
+    "tabOrder": 501
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommendation: replace daily 1.96 peeking with a pre-registered O'Brien-Fleming plan, gate every readout on SRM, and report shrunk lifts.",
+                    "textStyle": {
+                      "fontSize": "22pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- Peeking: on the real checkpoint schedules, stopping at the first |z| >= 1.96 has a ~19% false positive rate, not 5%. 20 of 99 primary arms cross 1.96 at some point and the full-horizon answer disagrees.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- OBF holds the error at ~5%, calls 24 of the 26 significant arms the same way, and stops a median 25 days early (median test length 44 days). That frees ~750 arm-days of traffic.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- mSPRT is always valid (~1% FPR) but only recovers 18 of 26. Use it for continuous monitoring and kill switches, not for the ship call.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- Trust: 9 arms (9%) fail SRM with shares like 49.2% on millions of users. That is a bug (assignment, logging, bot filtering), not noise. 3 more arms are far from 50/50 and need their planned split confirmed. Two arms also lost treatment users between checkpoints, and one experiment had an empty checkpoint.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- Portfolio: 14 SHIP, 10 STOP (primary harm), 63 inconclusive, 12 untrusted. 1 in 7 wins and 1 in 10 hurts. Short tests (<= 3 weeks) never shipped, and 15% of them were harmful.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- Winner's curse: true effects vary by ~0.7% between experiments. Precise wins barely move, noisy ones collapse (e.g. +1.9% -> +0.4%). Forecast with shrunk numbers.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- Metrics: final z-scores of the 4 metrics correlate 0.89-0.97. Keep M1 plus one guardrail and review the rare disagreements before dropping the others.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "- Robustness: across alpha 0.01-0.10 and guardrail margins 0-3%, SHIP ranges from 6 to 17. Above a 1% margin the guardrails stop binding. The peeking and SRM findings do not depend on these settings.",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Caveat: metrics are anonymised. Calling M1 primary and M2-M4 guardrails is this program's assumed policy, not ASOS's actual practice. Source: ASOS Digital Experiments Dataset (Liu et al. 2021), CC BY 4.0.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

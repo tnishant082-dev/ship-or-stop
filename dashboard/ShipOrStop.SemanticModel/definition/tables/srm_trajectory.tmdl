@@ -1,0 +1,58 @@
+/// Treatment share and SRM p-value over the life of each arm
+table srm_trajectory
+	lineageTag: 0ff9aaf0-c05b-5a77-9adc-719777d1f8fb
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: 420c03bb-9646-5ce2-bf5c-4eae3c3a085d
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: d892141b-be01-547b-97ab-ab3e36a4def9
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column look
+		dataType: int64
+		formatString: 0
+		lineageTag: a6aa029d-bc20-5678-97ab-f55b1d261f0c
+		summarizeBy: none
+		sourceColumn: look
+
+		annotation SummarizationSetBy = Automatic
+
+	column treatment_share
+		dataType: double
+		formatString: 0.00%
+		lineageTag: ad1ab0ba-f1af-5634-a390-c117dcbfe032
+		summarizeBy: none
+		sourceColumn: treatment_share
+
+		annotation SummarizationSetBy = Automatic
+
+	column srm_p
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: edb069e9-ac1e-56ad-83af-3b66a64da9a3
+		summarizeBy: none
+		sourceColumn: srm_p
+
+		annotation SummarizationSetBy = Automatic
+
+	partition srm_trajectory = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "srm_trajectory"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"arm_id", type text}, {"day", type number}, {"look", Int64.Type}, {"treatment_share", type number}, {"srm_p", type number}} )
+				in
+				    Typed

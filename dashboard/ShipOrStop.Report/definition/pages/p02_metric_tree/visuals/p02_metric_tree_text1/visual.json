@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p02_metric_tree_text1",
+  "position": {
+    "x": 1216,
+    "y": 656,
+    "z": 501,
+    "width": 684,
+    "height": 400,
+    "tabOrder": 501
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "How to read the tree",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Trust: can we believe the readout? (sample ratio, data quality, error rate of the stopping rule)",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Speed: how long until a decision, and how much traffic a sequential plan would free",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Impact: how often we ship, and how big wins really are after shrinkage",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Risk: how often a change hurts, and how many calls a naive peek gets wrong",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

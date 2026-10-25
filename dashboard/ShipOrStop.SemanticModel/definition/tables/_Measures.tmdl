@@ -1,0 +1,475 @@
+table _Measures
+	lineageTag: a565b70c-a21a-56f2-b62f-0fbea926b178
+
+	measure 'Experiments' = MAX ( program_kpis[experiments] )
+		formatString: #,0
+		displayFolder: Program
+		lineageTag: e289d473-316a-53ef-9d55-9314c9fed562
+
+	measure 'Treatment Arms' = MAX ( program_kpis[arms] )
+		formatString: #,0
+		displayFolder: Program
+		lineageTag: 536558c8-c404-5573-bd85-3bc164746857
+
+	measure 'Testable Checkpoints' = MAX ( program_kpis[testable_checkpoints] )
+		formatString: #,0
+		displayFolder: Program
+		lineageTag: 7f0dae98-23fd-5e26-80a2-bcca1fdb99b5
+
+	/// Arms with verdict SHIP / all arms
+	measure 'Ship Rate' = MAX ( program_kpis[ship_rate] )
+		formatString: 0.0%
+		displayFolder: Program
+		lineageTag: 06569d43-0ed5-59a1-9e57-f26964acb357
+
+	/// Arms with a STOP verdict / all arms
+	measure 'Harm Rate' = MAX ( program_kpis[harm_rate] )
+		formatString: 0.0%
+		displayFolder: Program
+		lineageTag: 41d58b91-085b-56b4-a1ed-7501d9a37d87
+
+	/// Arms failing the sample ratio check
+	measure 'SRM Rate' = MAX ( program_kpis[srm_rate] )
+		formatString: 0.0%
+		displayFolder: Program
+		lineageTag: 1a5aee8a-ebaa-5cce-b601-b9a75621a3d7
+
+	measure 'Ship Arms' = MAX ( program_kpis[ship] )
+		formatString: #,0
+		displayFolder: Program
+		lineageTag: 2e27140a-ce37-5d2b-9bb1-02edfc1a620c
+
+	measure 'Stop Arms' = MAX ( program_kpis[stop] )
+		formatString: #,0
+		displayFolder: Program
+		lineageTag: 2775aed2-8762-582e-8ef2-cd99ee65c110
+
+	measure 'Inconclusive Arms' = MAX ( program_kpis[inconclusive] )
+		formatString: #,0
+		displayFolder: Program
+		lineageTag: 366c9330-842c-5b70-9d09-ae5ed3b614a5
+
+	measure 'Untrusted Arms' = MAX ( program_kpis[untrusted] )
+		formatString: #,0
+		displayFolder: Program
+		lineageTag: 9ba4bc9b-3ce6-5ab9-b87d-45e2b0d55781
+
+	measure 'Median Horizon Days' = MAX ( program_kpis[median_horizon_days] )
+		formatString: #,0.0
+		displayFolder: Program
+		lineageTag: 9edd1567-003e-5ed9-9255-9f8637160916
+
+	/// Median smallest relative lift detectable at 80% power
+	measure 'Median MDE' = MAX ( program_kpis[median_mde_rel] )
+		formatString: 0.00%
+		displayFolder: Program
+		lineageTag: f2a7e46a-aadc-5ac6-9030-3e48c002cb5d
+
+	measure 'FPR Fixed' = MAX ( program_kpis[fpr_fixed] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: feea9070-dec2-5eac-86d7-304cc234e8a9
+
+	/// Stop at the first |z| >= 1.96
+	measure 'FPR Naive Peeking' = MAX ( program_kpis[fpr_naive] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: 11bb0fe4-b278-5464-8c3c-22be16b73424
+
+	measure 'FPR OBF' = MAX ( program_kpis[fpr_obf] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: b8a5334e-f825-580f-baac-915871ae664b
+
+	measure 'FPR mSPRT' = MAX ( program_kpis[fpr_msprt] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: cbdeb71a-0509-5693-b244-47b46cb9133e
+
+	/// Primary arms where the first naive crossing disagrees with the full horizon
+	measure 'Naive Wrong Calls' = MAX ( program_kpis[naive_wrong_calls] )
+		formatString: #,0
+		displayFolder: Peeking
+		lineageTag: b60219fc-3926-55b7-bce7-d6ed36c5b88e
+
+	measure 'False Positive Rate' = AVERAGE ( null_fpr[false_positive_rate] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: 84e953b5-b77a-5784-bacf-a608ab3e662c
+
+	measure 'Curve Naive' = AVERAGE ( peeking_curve[naive_peeking] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: c8a3193b-d062-5687-93cf-113c417dd7de
+
+	measure 'Curve OBF' = AVERAGE ( peeking_curve[obrien_fleming] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: f459b348-7ab3-5f71-b9e3-720aaf036df0
+
+	measure 'Curve mSPRT' = AVERAGE ( peeking_curve[msprt] )
+		formatString: 0.0%
+		displayFolder: Peeking
+		lineageTag: 7976219e-2690-5752-8cd2-ab2fd689d54b
+
+	measure 'OBF Median Days Saved' = MAX ( program_kpis[obf_median_days_saved] )
+		formatString: #,0.0
+		displayFolder: Sequential
+		lineageTag: a4e0462f-6953-57f4-93ca-69b8cfd3b4f9
+
+	measure 'mSPRT Median Days Saved' = MAX ( program_kpis[msprt_median_days_saved] )
+		formatString: #,0.0
+		displayFolder: Sequential
+		lineageTag: 8bdc34e5-0fef-525f-b175-f357b0804a8c
+
+	measure 'Arm-days Freed by OBF' = MAX ( program_kpis[arm_days_saved_obf] )
+		formatString: #,0
+		displayFolder: Sequential
+		lineageTag: b7ba09fe-36a3-5a0e-abba-ebaa06625a63
+
+	measure 'Arm-days Run' = MAX ( program_kpis[arm_days_run] )
+		formatString: #,0
+		displayFolder: Sequential
+		lineageTag: 3c4615d5-f271-5059-ba88-ae25bb7262c4
+
+	/// Significant full-horizon arms that OBF calls the same way
+	measure 'OBF Agreement' = DIVIDE ( MAX ( program_kpis[obf_agrees] ), MAX ( program_kpis[primary_fixed_sig] ) )
+		formatString: 0.0%
+		displayFolder: Sequential
+		lineageTag: cd640cd4-bf1b-5ade-a35a-dd1f011ba587
+
+	measure 'mSPRT Agreement' = DIVIDE ( MAX ( program_kpis[msprt_agrees] ), MAX ( program_kpis[primary_fixed_sig] ) )
+		formatString: 0.0%
+		displayFolder: Sequential
+		lineageTag: 19e3aa88-50d8-5f13-828a-f5d90df3547c
+
+	measure 'Avg OBF Stop Day' = AVERAGE ( sequential_stops[obf_day] )
+		formatString: #,0.0
+		displayFolder: Sequential
+		lineageTag: 40c2e122-7ef3-5e80-93ee-909419184b87
+
+	measure 'Avg Horizon Day' = AVERAGE ( sequential_stops[horizon_days] )
+		formatString: #,0.0
+		displayFolder: Sequential
+		lineageTag: 3038eaec-0c27-5507-b213-8979187bff58
+
+	measure 'Days Saved OBF' = SUM ( sequential_stops[obf_days_saved] )
+		formatString: #,0.0
+		displayFolder: Sequential
+		lineageTag: fc6da27b-3531-5aba-9eac-d20b17c53455
+
+	measure 'Z' = AVERAGE ( checkpoints[z] )
+		formatString: 0.00
+		displayFolder: Checkpoints
+		lineageTag: dddfa6ce-f39b-5ff4-a832-0c51b0fbfc2b
+
+	measure 'OBF Upper' = AVERAGE ( checkpoints[obf_upper] )
+		formatString: 0.00
+		displayFolder: Checkpoints
+		lineageTag: c80c0714-2cf5-5744-a7a9-6964ac1ebe1c
+
+	measure 'OBF Lower' = AVERAGE ( checkpoints[obf_lower] )
+		formatString: 0.00
+		displayFolder: Checkpoints
+		lineageTag: 2e690389-6adb-5367-a12e-ea83521aadc1
+
+	measure 'Naive Upper' = AVERAGE ( checkpoints[naive_upper] )
+		formatString: 0.00
+		displayFolder: Checkpoints
+		lineageTag: ddeba69d-b625-5077-8886-77d923baca83
+
+	measure 'Naive Lower' = AVERAGE ( checkpoints[naive_lower] )
+		formatString: 0.00
+		displayFolder: Checkpoints
+		lineageTag: f42c5cae-358a-53b0-8adf-7102f50fa8dd
+
+	measure 'Always-valid p' = AVERAGE ( checkpoints[always_valid_p] )
+		formatString: 0.000
+		displayFolder: Checkpoints
+		lineageTag: e4c8c506-5350-516a-a473-b02c49b6ba89
+
+	measure 'Naive p' = AVERAGE ( checkpoints[p_naive] )
+		formatString: 0.000
+		displayFolder: Checkpoints
+		lineageTag: 622b5d68-3c9a-51de-bcea-db1e285aca8f
+
+	measure 'Cumulative Lift' = AVERAGE ( checkpoints[rel_lift] )
+		formatString: 0.00%
+		displayFolder: Checkpoints
+		lineageTag: 05d95a15-e0e5-5c24-9904-97cc748beff5
+
+	measure 'Lift CI Low' = AVERAGE ( checkpoints[rel_ci_low] )
+		formatString: 0.00%
+		displayFolder: Checkpoints
+		lineageTag: fbb02d30-7347-504b-9754-877f0ed9f3f3
+
+	measure 'Lift CI High' = AVERAGE ( checkpoints[rel_ci_high] )
+		formatString: 0.00%
+		displayFolder: Checkpoints
+		lineageTag: ec98e226-a4ca-5661-89c1-bbbc2bb5ccbf
+
+	measure 'Arm Sample' = MAX ( checkpoints[n] )
+		formatString: #,0
+		displayFolder: Checkpoints
+		lineageTag: 41c436a1-e050-5f19-b5e8-99fe00a741e4
+
+	measure 'SRM Arms' = CALCULATE ( COUNTROWS ( srm ), srm[ratio_status] = "SRM" ) + 0
+		formatString: #,0
+		displayFolder: SRM
+		lineageTag: 26a1cd36-14c8-52e9-accb-6e26f6c6d27e
+
+	measure 'Allocation Unknown Arms' = CALCULATE ( COUNTROWS ( srm ), srm[ratio_status] = "allocation unknown" ) + 0
+		formatString: #,0
+		displayFolder: SRM
+		lineageTag: 5bc44941-98c6-5826-9182-6c0975a1ee73
+
+	measure 'Healthy Ratio Share' = DIVIDE ( CALCULATE ( COUNTROWS ( srm ), srm[ratio_status] = "healthy" ), COUNTROWS ( srm ) )
+		formatString: 0.0%
+		displayFolder: SRM
+		lineageTag: d2427574-1392-5111-b1f0-cdf82cc252e3
+
+	measure 'Arm Users' = SUM ( srm[n_c] ) + SUM ( srm[n_t] )
+		formatString: #,0
+		displayFolder: SRM
+		lineageTag: fc76eb2a-d611-542c-b8c2-084342aae19d
+
+	measure 'Arm Treatment Share' = AVERAGE ( srm[treatment_share] )
+		formatString: 0.00%
+		displayFolder: SRM
+		lineageTag: d850fa84-b97a-5829-b111-8abcbbb3ea0e
+
+	measure 'KPI Count' = COUNTROWS ( metric_tree )
+		formatString: #,0
+		displayFolder: Tree
+		lineageTag: 4c011c69-3380-557a-963b-a34170ada96c
+
+	measure 'Arms by Status' = COUNTROWS ( srm )
+		formatString: #,0
+		displayFolder: SRM
+		lineageTag: 18e4e2a0-8222-567b-9c67-5f5b843ee53f
+
+	measure 'Treatment Share' = AVERAGE ( srm_trajectory[treatment_share] )
+		formatString: 0.000%
+		displayFolder: SRM
+		lineageTag: a7637aaf-d039-509b-9373-0746417f0d69
+
+	/// Largest |share - 50%| among SRM arms
+	measure 'Worst Share Gap' = MAXX ( FILTER ( srm, srm[ratio_status] = "SRM" ), ABS ( srm[treatment_share] - 0.5 ) )
+		formatString: 0.00%
+		displayFolder: SRM
+		lineageTag: dda92857-14a5-594c-beaf-c6a276569e6f
+
+	measure 'Arms' = SUM ( verdict_counts[arms] )
+		formatString: #,0
+		displayFolder: Verdicts
+		lineageTag: e0139dca-b608-5316-8ed6-35e4b65a86ff
+
+	measure 'Arm Count' = COUNTROWS ( arms )
+		formatString: #,0
+		displayFolder: Verdicts
+		lineageTag: 605a2f65-853e-567b-b21c-9f86a4463a45
+
+	measure 'Primary Lift' = AVERAGE ( arms[primary_lift] )
+		formatString: 0.00%
+		displayFolder: Verdicts
+		lineageTag: eb3417f4-4b29-5d7b-be99-19a06535494b
+
+	measure 'Primary CI Low' = AVERAGE ( arms[primary_low] )
+		formatString: 0.00%
+		displayFolder: Verdicts
+		lineageTag: a421e8dc-d53a-505d-8d07-7844cef1163b
+
+	measure 'Primary CI High' = AVERAGE ( arms[primary_high] )
+		formatString: 0.00%
+		displayFolder: Verdicts
+		lineageTag: 4e710313-bb28-5161-ac48-a230af6d2a57
+
+	measure 'Guardrail Breaches' = SUM ( arms[guardrails_breached] )
+		formatString: #,0
+		displayFolder: Verdicts
+		lineageTag: 2901f370-ceb7-5995-a3a1-3e83d2bd0571
+
+	measure 'Guardrails Unproven' = SUM ( arms[guardrails_unproven] )
+		formatString: #,0
+		displayFolder: Verdicts
+		lineageTag: 216b6ce8-abd8-5b2c-a1aa-edde109c707d
+
+	measure 'Arms with Guardrail Breach' = CALCULATE ( COUNTROWS ( arms ), arms[guardrails_breached] > 0 ) + 0
+		formatString: #,0
+		displayFolder: Verdicts
+		lineageTag: 9ef491a0-3815-5834-bd55-dac5535ebfed
+
+	measure 'Worst Guardrail Low' = MIN ( arms[worst_guardrail_low] )
+		formatString: 0.00%
+		displayFolder: Verdicts
+		lineageTag: 2a5f2312-51b7-5d99-81cd-be14cc8a98ed
+
+	measure 'Avg Observed Win Lift' = MAX ( program_kpis[avg_observed_win_lift] )
+		formatString: 0.00%
+		displayFolder: Verdicts
+		lineageTag: 3be984a2-8fed-5618-bf80-ef06e46a5ef9
+
+	measure 'Avg Shrunk Win Lift' = MAX ( program_kpis[avg_shrunk_win_lift] )
+		formatString: 0.00%
+		displayFolder: Verdicts
+		lineageTag: 9c731716-2128-5ff9-9770-733b4f69426f
+
+	measure 'Sensitivity Arms' = SUM ( decision_sensitivity[arms] )
+		formatString: #,0
+		displayFolder: Verdicts
+		lineageTag: a952c889-d899-5346-a67d-52cb5de2749d
+
+	measure 'Observed Lift' = AVERAGE ( eb_shrinkage[observed_lift] )
+		formatString: 0.00%
+		displayFolder: Shrinkage
+		lineageTag: f2e66819-4888-54a1-93c6-5f9ace23d015
+
+	measure 'Shrunk Lift' = AVERAGE ( eb_shrinkage[eb_lift] )
+		formatString: 0.00%
+		displayFolder: Shrinkage
+		lineageTag: 8a6b0c7a-60d2-53f8-b43a-7b46be13a5be
+
+	/// Average weight on the program mean for the primary metric (1 = fully shrunk)
+	measure 'Shrink Factor' = CALCULATE ( AVERAGE ( eb_shrinkage[shrink_factor] ), eb_shrinkage[metric_id] = 1 )
+		formatString: 0.00
+		displayFolder: Shrinkage
+		lineageTag: 50f10963-24d9-5925-b350-fc974e3974b3
+
+	/// Between-experiment sd of true primary lifts
+	measure 'Tau Primary' = MAX ( program_kpis[tau_primary] )
+		formatString: 0.00%
+		displayFolder: Shrinkage
+		lineageTag: 6a5d2de5-7a6b-583e-89e3-76c399d57525
+
+	measure 'Tau' = AVERAGE ( heterogeneity[tau] )
+		formatString: 0.00%
+		displayFolder: Shrinkage
+		lineageTag: 6dc4b625-0826-576f-b21b-53e0470b9a26
+
+	measure 'I2' = AVERAGE ( heterogeneity[i2] )
+		formatString: 0.0%
+		displayFolder: Shrinkage
+		lineageTag: b9a93ad0-fc61-5bd1-936d-1dbe013d221f
+
+	measure 'Win Rate' = AVERAGE ( verdict_segments[win_rate] )
+		formatString: 0.0%
+		displayFolder: Segments
+		lineageTag: 16e881d0-77df-5e6f-852b-5d99ffd9f2da
+
+	measure 'Loss Rate' = AVERAGE ( verdict_segments[loss_rate] )
+		formatString: 0.0%
+		displayFolder: Segments
+		lineageTag: 05035a2f-5800-5ae4-bda4-ddf11a446be1
+
+	measure 'Flat Rate' = AVERAGE ( verdict_segments[flat_rate] )
+		formatString: 0.0%
+		displayFolder: Segments
+		lineageTag: 1e517f02-0afb-5f84-a8ce-35d31831dc14
+
+	measure 'Segment Arms' = SUM ( verdict_segments[arms] )
+		formatString: #,0
+		displayFolder: Segments
+		lineageTag: 634f1239-9f9c-5025-91eb-d4c9592e93f5
+
+	measure 'Segment MDE' = AVERAGE ( verdict_segments[median_mde] )
+		formatString: 0.00%
+		displayFolder: Segments
+		lineageTag: 94aee972-ac7d-5d88-aff8-eed50e977d65
+
+	measure 'Z Correlation' = AVERAGE ( metric_comovement[z_corr] )
+		formatString: 0.00
+		displayFolder: Metrics
+		lineageTag: 6458b05b-6940-5723-961e-514561c85ef4
+
+	measure 'Sign Agreement' = AVERAGE ( metric_comovement[sign_agreement] )
+		formatString: 0.0%
+		displayFolder: Metrics
+		lineageTag: 390dcae0-223f-55e0-b19c-c0e72f26ffc0
+
+	measure 'Early Z Corr' = AVERAGE ( early_read[z_corr] )
+		formatString: 0.00
+		displayFolder: Metrics
+		lineageTag: 3e891185-a752-5441-8b3d-789e7cfe8d3a
+
+	measure 'Early Sign Agreement' = AVERAGE ( early_read[sign_agreement_when_final_sig] )
+		formatString: 0.0%
+		displayFolder: Metrics
+		lineageTag: 688d14c7-412e-5908-b0fe-e5363fb7fd77
+
+	/// Significant at the read day but not at the end
+	measure 'Early False Alarm' = AVERAGE ( early_read[share_early_sig_not_final] )
+		formatString: 0.0%
+		displayFolder: Metrics
+		lineageTag: a89f5c63-0160-5463-8e4b-d1d323d0d07e
+
+	measure 'Min Metric Corr' = CALCULATE ( MIN ( metric_comovement[z_corr] ), metric_comovement[metric_a] <> metric_comovement[metric_b] )
+		formatString: 0.00
+		displayFolder: Metrics
+		lineageTag: 7b79bd79-e779-5c03-a649-87e8e8ea699e
+
+	measure 'Day 7 Sign Agreement' = CALCULATE ( AVERAGE ( early_read[sign_agreement_when_final_sig] ), early_read[read_day] = 7, early_read[early_metric] = 1, early_read[final_metric] = 1 )
+		formatString: 0.0%
+		displayFolder: Metrics
+		lineageTag: 9af7e6ff-20de-556d-a777-4e265ed7c2cd
+
+	measure 'Day 7 Z Corr' = CALCULATE ( AVERAGE ( early_read[z_corr] ), early_read[read_day] = 7, early_read[early_metric] = 1, early_read[final_metric] = 1 )
+		formatString: 0.00
+		displayFolder: Metrics
+		lineageTag: 840558ce-97ba-5110-9bd8-2386c982bcff
+
+	measure 'Raw Rows' = CALCULATE ( SUM ( layer_rows[row_count] ), layer_rows[object] = "raw.asos_checkpoints" )
+		formatString: #,0
+		displayFolder: Quality
+		lineageTag: d84ac9b5-7c4c-5732-bf5f-7deccf65a808
+
+	measure 'Rejected Rows' = CALCULATE ( SUM ( layer_rows[row_count] ), layer_rows[object] = "stg.rejected_checkpoints" )
+		formatString: #,0
+		displayFolder: Quality
+		lineageTag: 83295c02-e34e-5653-872b-e96e499b3e42
+
+	measure 'DQ Checks' = COUNTROWS ( dq_checks )
+		formatString: #,0
+		displayFolder: Quality
+		lineageTag: afd85fc1-cf66-50fd-a512-0339e313d4cc
+
+	measure 'DQ Errors' = CALCULATE ( COUNTROWS ( dq_checks ), dq_checks[severity] = "error", dq_checks[passed] = FALSE () ) + 0
+		formatString: #,0
+		displayFolder: Quality
+		lineageTag: 4aca24af-4355-51fa-9dd1-df969450351c
+
+	measure 'DQ Warnings' = CALCULATE ( COUNTROWS ( dq_checks ), dq_checks[severity] = "warn", dq_checks[passed] = FALSE () ) + 0
+		formatString: #,0
+		displayFolder: Quality
+		lineageTag: 7985bae9-d21c-5f31-9dcc-1a56e0c6d38c
+
+	measure 'Incidents' = COUNTROWS ( dq_incidents )
+		formatString: #,0
+		displayFolder: Quality
+		lineageTag: db757f7a-71f7-50e8-a457-99c339717e14
+
+	measure 'Layer Rows' = SUM ( layer_rows[row_count] )
+		formatString: #,0
+		displayFolder: Quality
+		lineageTag: 121f018f-4d4f-53ed-acc3-fcd3f57ea3de
+
+	measure 'KPI Value' = MAX ( metric_tree[value_display] )
+		displayFolder: Tree
+		lineageTag: eec241fd-6094-5a5a-abb8-05c84ef6bc7e
+
+	measure 'KPI Target' = MAX ( metric_tree[target_display] )
+		displayFolder: Tree
+		lineageTag: 652f895c-5705-5faa-8179-8b4f1c487401
+
+	column Value
+		dataType: string
+		isHidden
+		lineageTag: 80e7b9ff-0e40-52db-8030-bef73a4db404
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW ( "Value", BLANK () )

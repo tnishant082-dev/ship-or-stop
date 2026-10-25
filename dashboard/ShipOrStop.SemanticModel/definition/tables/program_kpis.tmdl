@@ -1,0 +1,265 @@
+/// One row of program-level KPIs computed in SQL
+table program_kpis
+	lineageTag: eb0ec7ba-f246-5817-a98b-c563df36d708
+
+	column experiments
+		dataType: int64
+		formatString: #,0
+		lineageTag: 02435881-a4eb-5ed4-9666-8c1b60b75d1b
+		summarizeBy: none
+		sourceColumn: experiments
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: d46bdf51-2983-5716-adeb-f7f76204f8f9
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column testable_checkpoints
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5de41efc-2c94-5e7d-b92b-825a8ad60577
+		summarizeBy: none
+		sourceColumn: testable_checkpoints
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship
+		dataType: int64
+		formatString: #,0
+		lineageTag: e88ccc1a-908f-51ef-9483-30eb9fd19fbe
+		summarizeBy: none
+		sourceColumn: ship
+
+		annotation SummarizationSetBy = Automatic
+
+	column stop
+		dataType: int64
+		formatString: #,0
+		lineageTag: 70c7c154-0ce6-5fde-bb41-a83b3480f801
+		summarizeBy: none
+		sourceColumn: stop
+
+		annotation SummarizationSetBy = Automatic
+
+	column inconclusive
+		dataType: int64
+		formatString: #,0
+		lineageTag: cabd75ce-148e-57e0-8db9-1ba6c0f5a275
+		summarizeBy: none
+		sourceColumn: inconclusive
+
+		annotation SummarizationSetBy = Automatic
+
+	column untrusted
+		dataType: int64
+		formatString: #,0
+		lineageTag: 26c6b323-53c6-5a8f-8c87-3aa13d1ac1c5
+		summarizeBy: none
+		sourceColumn: untrusted
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: aba3ce7d-5376-57ea-99fc-8e7cf09eccfd
+		summarizeBy: none
+		sourceColumn: ship_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column harm_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 2d7c32ca-17f0-505d-979f-ec32b10a73fc
+		summarizeBy: none
+		sourceColumn: harm_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column srm_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 70ffd68e-299f-5e22-b5a6-9f358addced0
+		summarizeBy: none
+		sourceColumn: srm_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column fpr_fixed
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 357530e4-03ec-553c-969e-3ef45baa0f6f
+		summarizeBy: none
+		sourceColumn: fpr_fixed
+
+		annotation SummarizationSetBy = Automatic
+
+	column fpr_naive
+		dataType: double
+		formatString: 0.00%
+		lineageTag: c3197558-bbdb-5dae-bf70-8885477e2e9b
+		summarizeBy: none
+		sourceColumn: fpr_naive
+
+		annotation SummarizationSetBy = Automatic
+
+	column fpr_obf
+		dataType: double
+		formatString: 0.00%
+		lineageTag: dd664ebc-ebf1-5d6c-aa63-be7bc9cf05c9
+		summarizeBy: none
+		sourceColumn: fpr_obf
+
+		annotation SummarizationSetBy = Automatic
+
+	column fpr_msprt
+		dataType: double
+		formatString: 0.00%
+		lineageTag: d78c96d0-5fe6-50ab-badd-1c59621b1115
+		summarizeBy: none
+		sourceColumn: fpr_msprt
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_wrong_calls
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8b2b935f-376a-56a5-9d0d-9b6c3b459903
+		summarizeBy: none
+		sourceColumn: naive_wrong_calls
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_fixed_sig
+		dataType: int64
+		formatString: #,0
+		lineageTag: 492bc10b-5971-5a34-9b80-1fb529db50e9
+		summarizeBy: none
+		sourceColumn: primary_fixed_sig
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_agrees
+		dataType: int64
+		formatString: #,0
+		lineageTag: 57641650-5b1c-59b7-b30f-d98a9945cd66
+		summarizeBy: none
+		sourceColumn: obf_agrees
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt_agrees
+		dataType: int64
+		formatString: #,0
+		lineageTag: 80153d09-be1a-560c-9c02-7ff0ce8ae0ed
+		summarizeBy: none
+		sourceColumn: msprt_agrees
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_median_days_saved
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 92799232-8498-5044-8546-67ab0872b744
+		summarizeBy: none
+		sourceColumn: obf_median_days_saved
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt_median_days_saved
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 0a2e4518-e3a1-5d45-99ee-f07d00a5b7da
+		summarizeBy: none
+		sourceColumn: msprt_median_days_saved
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_horizon_days
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: c91293f8-7991-5891-8027-ce49847411c7
+		summarizeBy: none
+		sourceColumn: median_horizon_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column arm_days_run
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 714ebf6d-4988-575a-bac5-4d8a9992ec91
+		summarizeBy: none
+		sourceColumn: arm_days_run
+
+		annotation SummarizationSetBy = Automatic
+
+	column arm_days_saved_obf
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 2263019c-3d7f-5fc7-9175-0d4343b41cb4
+		summarizeBy: none
+		sourceColumn: arm_days_saved_obf
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_shrunk_win_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 3824592f-bfed-5c83-a9ca-b081e849cd1d
+		summarizeBy: none
+		sourceColumn: avg_shrunk_win_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_observed_win_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5d170ef7-5937-58c6-ab64-f110dcb66744
+		summarizeBy: none
+		sourceColumn: avg_observed_win_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_mde_rel
+		dataType: double
+		formatString: 0.00%
+		lineageTag: bc619539-1ced-5f49-b4c5-4dc2399c08ba
+		summarizeBy: none
+		sourceColumn: median_mde_rel
+
+		annotation SummarizationSetBy = Automatic
+
+	column tau_primary
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 8bcdcac8-b2b9-5638-adf2-e6ae8f9bd784
+		summarizeBy: none
+		sourceColumn: tau_primary
+
+		annotation SummarizationSetBy = Automatic
+
+	column dq_errors
+		dataType: int64
+		formatString: #,0
+		lineageTag: b4a8d382-a3eb-5ef0-9928-15ada77f4a8a
+		summarizeBy: none
+		sourceColumn: dq_errors
+
+		annotation SummarizationSetBy = Automatic
+
+	partition program_kpis = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "program_kpis"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"experiments", Int64.Type}, {"arms", Int64.Type}, {"testable_checkpoints", Int64.Type}, {"ship", Int64.Type}, {"stop", Int64.Type}, {"inconclusive", Int64.Type}, {"untrusted", Int64.Type}, {"ship_rate", type number}, {"harm_rate", type number}, {"srm_rate", type number}, {"fpr_fixed", type number}, {"fpr_naive", type number}, {"fpr_obf", type number}, {"fpr_msprt", type number}, {"naive_wrong_calls", Int64.Type}, {"primary_fixed_sig", Int64.Type}, {"obf_agrees", Int64.Type}, {"msprt_agrees", Int64.Type}, {"obf_median_days_saved", type number}, {"msprt_median_days_saved", type number}, {"median_horizon_days", type number}, {"arm_days_run", type number}, {"arm_days_saved_obf", type number}, {"avg_shrunk_win_lift", type number}, {"avg_observed_win_lift", type number}, {"median_mde_rel", type number}, {"tau_primary", type number}, {"dq_errors", Int64.Type}} )
+				in
+				    Typed

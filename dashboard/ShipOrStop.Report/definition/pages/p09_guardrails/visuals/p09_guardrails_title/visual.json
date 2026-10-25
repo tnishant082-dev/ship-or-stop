@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p09_guardrails_title",
+  "position": {
+    "x": 20,
+    "y": 2,
+    "z": 0,
+    "width": 1880,
+    "height": 86,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Guardrails & Verdicts",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Guardrail rule: lower 95% bound of M2, M3 and M4 must sit above -1%. A breach means the upper bound is below -1%",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,67 @@
+/// Stopping rules compared on the primary metric
+table sequential_summary
+	lineageTag: 374af7db-2e0c-5518-9cb6-88aae3f347db
+
+	column rule
+		dataType: string
+		lineageTag: 26e9fc43-76fe-505e-8cde-7b0f197c27d0
+		summarizeBy: none
+		sourceColumn: rule
+		sortByColumn: rule_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule_order
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ed799fa-b5d5-5d1e-9b9f-a444d591a1b7
+		summarizeBy: none
+		sourceColumn: rule_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms_stopped
+		dataType: int64
+		formatString: #,0
+		lineageTag: 95ef0f8d-ac0a-5913-a44d-c0eb598be850
+		summarizeBy: none
+		sourceColumn: arms_stopped
+
+		annotation SummarizationSetBy = Automatic
+
+	column wrong_calls
+		dataType: int64
+		formatString: #,0
+		lineageTag: 596076f1-b275-5ad9-bc8e-aa83c1699b64
+		summarizeBy: none
+		sourceColumn: wrong_calls
+
+		annotation SummarizationSetBy = Automatic
+
+	column agrees_with_fixed
+		dataType: int64
+		formatString: #,0
+		lineageTag: 15f6abc6-250d-5d4b-8668-c81e4b522abd
+		summarizeBy: none
+		sourceColumn: agrees_with_fixed
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_days_saved
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: d7e73d3b-73ec-5502-b396-6974f46d563c
+		summarizeBy: none
+		sourceColumn: median_days_saved
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sequential_summary = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "sequential_summary"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"rule", type text}, {"rule_order", Int64.Type}, {"arms_stopped", Int64.Type}, {"wrong_calls", Int64.Type}, {"agrees_with_fixed", Int64.Type}, {"median_days_saved", type number}} )
+				in
+				    Typed

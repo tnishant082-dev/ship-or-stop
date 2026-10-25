@@ -1,0 +1,49 @@
+/// False positive rate vs number of equally spaced looks
+table peeking_curve
+	lineageTag: bc7380f1-ea46-5d22-bbef-180de76a965f
+
+	column looks
+		dataType: int64
+		formatString: 0
+		lineageTag: 63a2d24f-102c-5d1b-88d0-75b1ae33f237
+		summarizeBy: none
+		sourceColumn: looks
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_peeking
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 93d7af86-ed99-5feb-a78b-2248313c5eae
+		summarizeBy: none
+		sourceColumn: naive_peeking
+
+		annotation SummarizationSetBy = Automatic
+
+	column obrien_fleming
+		dataType: double
+		formatString: 0.00%
+		lineageTag: ee2941a9-e670-5bde-94c5-5d43c4201bc3
+		summarizeBy: none
+		sourceColumn: obrien_fleming
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 80357af4-1706-591a-b048-3681fa1f49d1
+		summarizeBy: none
+		sourceColumn: msprt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition peeking_curve = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "peeking_curve"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"looks", Int64.Type}, {"naive_peeking", type number}, {"obrien_fleming", type number}, {"msprt", type number}} )
+				in
+				    Typed

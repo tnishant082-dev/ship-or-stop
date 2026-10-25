@@ -1,0 +1,56 @@
+/// Load audit: source file hash and rows
+table load_audit
+	lineageTag: a1bca491-d743-5fc0-b679-8fd1a9ac7505
+
+	column load_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d3ae3ca5-65ae-5547-9b56-42d25f7e19cf
+		summarizeBy: none
+		sourceColumn: load_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		lineageTag: fc789cae-e134-5a59-9e51-1b6522faee42
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_sha256
+		dataType: string
+		lineageTag: a35b8dbb-21a0-5ae6-b15d-2076d1987e8d
+		summarizeBy: none
+		sourceColumn: source_sha256
+
+		annotation SummarizationSetBy = Automatic
+
+	column rows_loaded
+		dataType: int64
+		formatString: #,0
+		lineageTag: 94e99cc5-9256-5b91-8218-04298a8d04d9
+		summarizeBy: none
+		sourceColumn: rows_loaded
+
+		annotation SummarizationSetBy = Automatic
+
+	column loaded_at
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn
+		lineageTag: cf1f1dee-099c-515c-9d2c-589b29397511
+		summarizeBy: none
+		sourceColumn: loaded_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition load_audit = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "load_audit"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"load_id", Int64.Type}, {"source_file", type text}, {"source_sha256", type text}, {"rows_loaded", Int64.Type}, {"loaded_at", type datetimezone}} )
+				in
+				    Typed

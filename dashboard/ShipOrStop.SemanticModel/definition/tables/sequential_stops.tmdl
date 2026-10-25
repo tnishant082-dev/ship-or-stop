@@ -1,0 +1,205 @@
+/// First stop per rule per arm x metric, agreement with full horizon
+table sequential_stops
+	lineageTag: d17bccb7-1a14-5658-bfa5-fe0610106f68
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: c4c6c7a0-6dfb-54dc-a7ea-6f7a4bcd97d0
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 97ff1cf5-2d1c-5434-8665-3fcaa2f22188
+		summarizeBy: none
+		sourceColumn: metric_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column looks
+		dataType: int64
+		formatString: 0
+		lineageTag: d8a8b2a5-5163-5a41-b44d-245c80d7aaa0
+		summarizeBy: none
+		sourceColumn: looks
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_days
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: d9568d20-ebe1-5b4d-8a79-054179de38ac
+		summarizeBy: none
+		sourceColumn: horizon_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_day
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 76a9c4b1-9e96-5eab-918a-be2105d449d1
+		summarizeBy: none
+		sourceColumn: naive_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_look
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8a64e1a2-8639-5a68-a4e7-87bc8e4c3c2f
+		summarizeBy: none
+		sourceColumn: naive_look
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_day
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 33a8872b-3b23-595c-800c-5fa37b556ee5
+		summarizeBy: none
+		sourceColumn: obf_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_look
+		dataType: int64
+		formatString: #,0
+		lineageTag: db190f1d-e475-533e-ac92-b7e76b8fa63f
+		summarizeBy: none
+		sourceColumn: obf_look
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt_day
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 3ef9bac5-8d2c-5b12-b9b7-6d139988e238
+		summarizeBy: none
+		sourceColumn: msprt_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt_look
+		dataType: int64
+		formatString: #,0
+		lineageTag: 00da66ba-32b8-5444-bfa2-79b3c941d31e
+		summarizeBy: none
+		sourceColumn: msprt_look
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_sign
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 46dc1e93-d5a0-583d-a33d-b45c9c2410a7
+		summarizeBy: none
+		sourceColumn: naive_sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_sign
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 6120a465-1049-5fe8-83d6-141158130731
+		summarizeBy: none
+		sourceColumn: obf_sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt_sign
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 5f901270-8f17-54ae-913f-3d306c84e123
+		summarizeBy: none
+		sourceColumn: msprt_sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column fixed_sig
+		dataType: boolean
+		lineageTag: dc0549af-751e-5e00-85b0-dfc604c5ef57
+		summarizeBy: none
+		sourceColumn: fixed_sig
+
+		annotation SummarizationSetBy = Automatic
+
+	column fixed_sign
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: c53c4c50-eb24-57b1-b394-3ef9d63c24d8
+		summarizeBy: none
+		sourceColumn: fixed_sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column ratio_status
+		dataType: string
+		lineageTag: dcbe2227-99e1-5f91-91a6-3fde66c103df
+		summarizeBy: none
+		sourceColumn: ratio_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_wrong_call
+		dataType: boolean
+		lineageTag: 45c0ac29-ad05-5df1-93b0-f5b1a3d26fd8
+		summarizeBy: none
+		sourceColumn: naive_wrong_call
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_agrees
+		dataType: boolean
+		lineageTag: 70490807-0872-5198-a003-ed4caa7c677f
+		summarizeBy: none
+		sourceColumn: obf_agrees
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt_agrees
+		dataType: boolean
+		lineageTag: a1a13f1a-f8dd-523a-9874-47b1f1230c14
+		summarizeBy: none
+		sourceColumn: msprt_agrees
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_days_saved
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 3d179a8c-9ac5-54fd-840a-49762cbc5369
+		summarizeBy: none
+		sourceColumn: obf_days_saved
+
+		annotation SummarizationSetBy = Automatic
+
+	column msprt_days_saved
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 740fbe23-d465-580d-a405-66d3d196e25c
+		summarizeBy: none
+		sourceColumn: msprt_days_saved
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_role
+		dataType: string
+		lineageTag: 59de2713-aa25-5cc2-ad8f-dc8fa4c05aca
+		summarizeBy: none
+		sourceColumn: metric_role
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sequential_stops = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "sequential_stops"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"arm_id", type text}, {"metric_id", Int64.Type}, {"looks", Int64.Type}, {"horizon_days", type number}, {"naive_day", type number}, {"naive_look", Int64.Type}, {"obf_day", type number}, {"obf_look", Int64.Type}, {"msprt_day", type number}, {"msprt_look", Int64.Type}, {"naive_sign", type number}, {"obf_sign", type number}, {"msprt_sign", type number}, {"fixed_sig", type logical}, {"fixed_sign", type number}, {"ratio_status", type text}, {"naive_wrong_call", type logical}, {"obf_agrees", type logical}, {"msprt_agrees", type logical}, {"obf_days_saved", type number}, {"msprt_days_saved", type number}, {"metric_role", type text}} )
+				in
+				    Typed

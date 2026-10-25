@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "p01_overview",
+    "p02_metric_tree",
+    "p03_data_quality",
+    "p04_catalog",
+    "p05_srm",
+    "p06_peeking",
+    "p07_checkpoints",
+    "p08_sequential",
+    "p09_guardrails",
+    "p10_winners",
+    "p11_winners_curse",
+    "p12_segments",
+    "p13_metrics",
+    "p14_sensitivity",
+    "p15_memo"
+  ],
+  "activePageName": "p01_overview"
+}

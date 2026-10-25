@@ -1,0 +1,94 @@
+/// Observed vs empirical-Bayes shrunk lift
+table eb_shrinkage
+	lineageTag: 9606b1f0-16d0-5249-829e-ecc448f10ae8
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: 12ec8c9f-16bd-5dc2-9e4b-01a34c807175
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e74ac8c-ee0b-5d8f-8f9f-9df0849af50c
+		summarizeBy: none
+		sourceColumn: metric_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column observed_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 40e1553f-7931-5179-9263-d87acbc955b8
+		summarizeBy: none
+		sourceColumn: observed_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column rel_se
+		dataType: double
+		formatString: 0.00%
+		lineageTag: b577aea6-8cf5-51ab-a812-01e599826908
+		summarizeBy: none
+		sourceColumn: rel_se
+
+		annotation SummarizationSetBy = Automatic
+
+	column eb_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 4124c77c-fb56-5b2f-8601-0e31e12c58cf
+		summarizeBy: none
+		sourceColumn: eb_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column eb_sd
+		dataType: double
+		formatString: 0.00%
+		lineageTag: d783b70d-2295-57f7-a7fc-a578f5b47a85
+		summarizeBy: none
+		sourceColumn: eb_sd
+
+		annotation SummarizationSetBy = Automatic
+
+	column shrink_factor
+		dataType: double
+		formatString: 0.00%
+		lineageTag: bf758d2b-624f-5e96-a098-d99d004413f3
+		summarizeBy: none
+		sourceColumn: shrink_factor
+
+		annotation SummarizationSetBy = Automatic
+
+	column shrinkage
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 9a3c68e2-e51d-5c8e-88fc-f81426efd80e
+		summarizeBy: none
+		sourceColumn: shrinkage
+
+		annotation SummarizationSetBy = Automatic
+
+	column abs_shrinkage
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5d03e2af-3aac-528d-a0be-d5336a4f554d
+		summarizeBy: none
+		sourceColumn: abs_shrinkage
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eb_shrinkage = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "eb_shrinkage"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"arm_id", type text}, {"metric_id", Int64.Type}, {"observed_lift", type number}, {"rel_se", type number}, {"eb_lift", type number}, {"eb_sd", type number}, {"shrink_factor", type number}, {"shrinkage", type number}, {"abs_shrinkage", type number}} )
+				in
+				    Typed

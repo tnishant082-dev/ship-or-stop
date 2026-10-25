@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p06_peeking_text1",
+  "position": {
+    "x": 796,
+    "y": 756,
+    "z": 501,
+    "width": 1104,
+    "height": 300,
+    "tabOrder": 501
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Reading it",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Checking a dashboard daily and stopping the first time p < 0.05 turns a 5% error rate into ~19% on these schedules, and it keeps climbing with more looks.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O'Brien-Fleming spends almost no alpha early and holds 5%. mSPRT is valid at any look but conservative (~1%), so it is slower to call real effects.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Plain Light",
+  "dataColors": [
+    "#1F4E79",
+    "#9DB9D5",
+    "#E07B39",
+    "#5B8C5A",
+    "#B0B0B0",
+    "#C9A227",
+    "#7A5C99",
+    "#D46A6A"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#323130",
+  "tableAccent": "#1F4E79",
+  "good": "#5B8C5A",
+  "neutral": "#C9A227",
+  "bad": "#D46A6A",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI",
+      "fontSize": 13,
+      "color": "#323130"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 12,
+      "color": "#605E5C"
+    },
+    "callout": {
+      "fontFace": "Segoe UI",
+      "fontSize": 24,
+      "color": "#1F4E79"
+    }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

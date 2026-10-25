@@ -1,0 +1,92 @@
+/// Outcome rates by experiment size, length and design
+table verdict_segments
+	lineageTag: 0e878be4-0e5e-5fea-b907-629f87326012
+
+	column dimension
+		dataType: string
+		lineageTag: 89cea91e-7f85-5e0b-a3b3-fb2cd3d8aee4
+		summarizeBy: none
+		sourceColumn: dimension
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: 8c0e9de8-3490-53dc-81c1-d99a6a1a5544
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: a6fd98c9-e659-5b2a-aac4-c9b28915e45e
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column win_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: cc6d5886-2987-5165-8348-c271a3e0ae77
+		summarizeBy: none
+		sourceColumn: win_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column loss_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 50d47981-ac95-529e-aa05-9cc3341ab0f5
+		summarizeBy: none
+		sourceColumn: loss_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column flat_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 75bfde03-f9f8-5efa-afbd-ea2b9478e5ca
+		summarizeBy: none
+		sourceColumn: flat_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column untrusted_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 0aacf9f8-f8d8-5734-8fcd-3efd5cbdd453
+		summarizeBy: none
+		sourceColumn: untrusted_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_abs_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 1a34cca9-fb9a-5b56-ad9a-b67eb18a87d5
+		summarizeBy: none
+		sourceColumn: avg_abs_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column median_mde
+		dataType: double
+		formatString: 0.00%
+		lineageTag: ed6794be-8800-5378-9cc7-92f5770b30c0
+		summarizeBy: none
+		sourceColumn: median_mde
+
+		annotation SummarizationSetBy = Automatic
+
+	partition verdict_segments = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "verdict_segments"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"dimension", type text}, {"segment", type text}, {"arms", Int64.Type}, {"win_rate", type number}, {"loss_rate", type number}, {"flat_rate", type number}, {"untrusted_rate", type number}, {"avg_abs_lift", type number}, {"median_mde", type number}} )
+				in
+				    Typed

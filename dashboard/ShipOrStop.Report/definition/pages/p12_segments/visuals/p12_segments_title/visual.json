@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p12_segments_title",
+  "position": {
+    "x": 20,
+    "y": 2,
+    "z": 0,
+    "width": 1880,
+    "height": 86,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Heterogeneity by Experiment Type",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Do outcomes depend on how big, how long or how complex the test was? Rates are shares of arms in each segment",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

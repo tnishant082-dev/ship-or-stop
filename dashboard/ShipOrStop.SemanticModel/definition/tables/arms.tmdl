@@ -1,0 +1,182 @@
+/// One row per treatment arm with its verdict
+table arms
+	lineageTag: ce7b8b28-c0d6-50d3-b930-5d5c6f24c4bc
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: ae4b13bd-a31d-53ae-8ad1-0e5e23d5dcc9
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column experiment_id
+		dataType: string
+		formatString: 0
+		lineageTag: a3bda359-2ef6-5b69-b9e4-9922487ab044
+		summarizeBy: none
+		sourceColumn: experiment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column verdict
+		dataType: string
+		lineageTag: 71141a70-69f4-526d-8e82-2096789e9381
+		summarizeBy: none
+		sourceColumn: verdict
+
+		annotation SummarizationSetBy = Automatic
+
+	column outcome
+		dataType: string
+		lineageTag: 10455297-dd41-5f18-9e01-300b1e6932bd
+		summarizeBy: none
+		sourceColumn: outcome
+		sortByColumn: outcome_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column outcome_order
+		dataType: int64
+		formatString: 0
+		lineageTag: c2105129-a3d3-56fa-ba0c-c8fff551f92e
+		summarizeBy: none
+		sourceColumn: outcome_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: a6aaefab-cf02-5c38-acc1-a60439b6bafb
+		summarizeBy: none
+		sourceColumn: primary_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_low
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 1b6436ba-dcf7-5fec-aea4-750db9534e7a
+		summarizeBy: none
+		sourceColumn: primary_low
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_high
+		dataType: double
+		formatString: 0.00%
+		lineageTag: d9173e62-bcbf-523c-b82d-28eb6151ab1a
+		summarizeBy: none
+		sourceColumn: primary_high
+
+		annotation SummarizationSetBy = Automatic
+
+	column eb_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5dd05f1a-c716-592e-b99b-80a9c85d1e59
+		summarizeBy: none
+		sourceColumn: eb_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column mde_rel_80
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 2dd51c04-dad1-50df-ab6e-f31cbfc8e377
+		summarizeBy: none
+		sourceColumn: mde_rel_80
+
+		annotation SummarizationSetBy = Automatic
+
+	column p_holm
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: f9e41a98-5a9a-5b18-8a98-eac7de4b7149
+		summarizeBy: none
+		sourceColumn: p_holm
+
+		annotation SummarizationSetBy = Automatic
+
+	column guardrails_breached
+		dataType: int64
+		formatString: #,0
+		lineageTag: f6ab874a-90d6-5239-b628-83aa75d564a5
+		summarizeBy: none
+		sourceColumn: guardrails_breached
+
+		annotation SummarizationSetBy = Automatic
+
+	column guardrails_unproven
+		dataType: int64
+		formatString: #,0
+		lineageTag: cefa88b3-4fee-578d-8973-dbfbf2fd72a6
+		summarizeBy: none
+		sourceColumn: guardrails_unproven
+
+		annotation SummarizationSetBy = Automatic
+
+	column worst_guardrail_low
+		dataType: double
+		formatString: 0.00%
+		lineageTag: bd75240b-9413-56f3-93e7-6490c158b2ea
+		summarizeBy: none
+		sourceColumn: worst_guardrail_low
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_days
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 74bc7040-ddda-5445-88e4-53a2395336fd
+		summarizeBy: none
+		sourceColumn: horizon_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column final_n
+		dataType: int64
+		formatString: #,0
+		lineageTag: a03d63d6-d258-5ebc-b8ba-cf899b7afc8b
+		summarizeBy: none
+		sourceColumn: final_n
+
+		annotation SummarizationSetBy = Automatic
+
+	column treatment_share
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 09bd6e33-3db5-5881-92d0-605abe55622f
+		summarizeBy: none
+		sourceColumn: treatment_share
+
+		annotation SummarizationSetBy = Automatic
+
+	column srm_p
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: 9831a54c-bf7d-59ed-8b2a-5ef221ed62ce
+		summarizeBy: none
+		sourceColumn: srm_p
+
+		annotation SummarizationSetBy = Automatic
+
+	column ratio_status
+		dataType: string
+		lineageTag: c7309f85-ba00-59d0-8f63-7834cabfb90a
+		summarizeBy: none
+		sourceColumn: ratio_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition arms = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "arms"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"arm_id", type text}, {"experiment_id", type text}, {"verdict", type text}, {"outcome", type text}, {"outcome_order", Int64.Type}, {"primary_lift", type number}, {"primary_low", type number}, {"primary_high", type number}, {"eb_lift", type number}, {"mde_rel_80", type number}, {"p_holm", type number}, {"guardrails_breached", Int64.Type}, {"guardrails_unproven", Int64.Type}, {"worst_guardrail_low", type number}, {"horizon_days", type number}, {"final_n", Int64.Type}, {"treatment_share", type number}, {"srm_p", type number}, {"ratio_status", type text}} )
+				in
+				    Typed

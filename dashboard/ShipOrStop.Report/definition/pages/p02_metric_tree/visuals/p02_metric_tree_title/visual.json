@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p02_metric_tree_title",
+  "position": {
+    "x": 20,
+    "y": 2,
+    "z": 0,
+    "width": 1880,
+    "height": 86,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Program Metric Tree",
+                    "textStyle": {
+                      "fontSize": "20pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Program health = Trust x Speed x Impact x Risk. Targets are the program's own policy targets (illustrative), status is computed in SQL",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

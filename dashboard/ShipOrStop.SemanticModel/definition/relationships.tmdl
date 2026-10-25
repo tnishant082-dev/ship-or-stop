@@ -1,0 +1,19 @@
+relationship 4c9afe7e-cfd0-5caf-adce-5f7ead8773c5
+	fromColumn: arms.experiment_id
+	toColumn: experiments.experiment_id
+
+relationship bc81b1f5-372c-5b46-8c80-20f694b4d57d
+	fromColumn: final_results.arm_id
+	toColumn: arms.arm_id
+
+relationship 0e1c9d08-9dd2-5058-aa8a-820931f529bf
+	fromColumn: checkpoints.arm_id
+	toColumn: arms.arm_id
+
+relationship d7f8ee2b-a683-5645-9afc-c6ac13246175
+	fromColumn: sequential_stops.arm_id
+	toColumn: arms.arm_id
+
+relationship e0a2b6c4-aef3-5697-9261-7fb772d2d710
+	fromColumn: srm_trajectory.arm_id
+	toColumn: arms.arm_id

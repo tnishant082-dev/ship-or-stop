@@ -1,0 +1,56 @@
+/// Row-level data incidents on the primary metric
+table dq_incidents
+	lineageTag: 1e481d30-70a9-5c0a-bfc8-d8c895b0ce0f
+
+	column incident
+		dataType: string
+		lineageTag: a4f0531a-cb85-55dd-a80e-0b19363ca032
+		summarizeBy: none
+		sourceColumn: incident
+
+		annotation SummarizationSetBy = Automatic
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: fc113618-5051-5945-b566-f6e57472b56d
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 42bbb5f3-b0c5-59e4-b002-54ad65c4f90b
+		summarizeBy: none
+		sourceColumn: metric_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 09487e54-d0a1-572f-a0b2-b387d31f534e
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column detail
+		dataType: string
+		lineageTag: cffae8b3-2534-5d19-ba82-51977253f57a
+		summarizeBy: none
+		sourceColumn: detail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dq_incidents = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "dq_incidents"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"incident", type text}, {"arm_id", type text}, {"metric_id", Int64.Type}, {"day", type number}, {"detail", type text}} )
+				in
+				    Typed

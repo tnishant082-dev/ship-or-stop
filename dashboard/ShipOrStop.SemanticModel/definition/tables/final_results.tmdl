@@ -1,0 +1,233 @@
+/// Full-horizon read per arm x metric (Holm within experiment, BH across program)
+table final_results
+	lineageTag: 050718d3-1ffd-5325-987a-6fdc69bcc6e3
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: 95b0e3c4-ee05-5ff1-98ca-f9ed929f2763
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column experiment_id
+		dataType: string
+		formatString: 0
+		lineageTag: 8dcf0a9e-c97b-5f68-9ea3-9403ad00cc27
+		summarizeBy: none
+		sourceColumn: experiment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f39fec1-ce09-50bb-a274-4d85c071fbd5
+		summarizeBy: none
+		sourceColumn: metric_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: 237c346d-9fec-5a1e-818e-b007783d236a
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_days
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 074ce873-fdbe-501b-84b3-d31964ddd134
+		summarizeBy: none
+		sourceColumn: horizon_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column looks
+		dataType: int64
+		formatString: 0
+		lineageTag: b9e3f07a-7025-5f77-a1ef-8b3561b8b480
+		summarizeBy: none
+		sourceColumn: looks
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_c
+		dataType: int64
+		formatString: #,0
+		lineageTag: 622b4edf-021e-565b-848b-b791e6fd7b1d
+		summarizeBy: none
+		sourceColumn: n_c
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_t
+		dataType: int64
+		formatString: #,0
+		lineageTag: b80e6f6d-2634-5e90-9585-b96986a6e400
+		summarizeBy: none
+		sourceColumn: n_t
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_c
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 3bdedb43-8097-53bc-871a-35614da9e50f
+		summarizeBy: none
+		sourceColumn: mean_c
+
+		annotation SummarizationSetBy = Automatic
+
+	column mean_t
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 7ddeeb93-4d8d-586e-90d1-dac3f029a500
+		summarizeBy: none
+		sourceColumn: mean_t
+
+		annotation SummarizationSetBy = Automatic
+
+	column z
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: e35ddd3f-d081-581a-a6fb-b25d883002fc
+		summarizeBy: none
+		sourceColumn: z
+
+		annotation SummarizationSetBy = Automatic
+
+	column rel_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 0558d955-bf9f-5862-a3ff-a1ecec8f52e9
+		summarizeBy: none
+		sourceColumn: rel_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column rel_ci_low
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 922fb9a3-3f8f-5422-a508-17338ff982a0
+		summarizeBy: none
+		sourceColumn: rel_ci_low
+
+		annotation SummarizationSetBy = Automatic
+
+	column rel_ci_high
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 29236092-3803-5546-b379-787329a01f96
+		summarizeBy: none
+		sourceColumn: rel_ci_high
+
+		annotation SummarizationSetBy = Automatic
+
+	column p_value
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: cdc68c0f-efdb-5bf9-bdf7-bb25ba85039c
+		summarizeBy: none
+		sourceColumn: p_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column p_holm
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: df045f82-38d2-5336-b3fe-2f767a689b7e
+		summarizeBy: none
+		sourceColumn: p_holm
+
+		annotation SummarizationSetBy = Automatic
+
+	column p_bh
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: 5c984f7c-e65e-544e-8a4f-a894731f3987
+		summarizeBy: none
+		sourceColumn: p_bh
+
+		annotation SummarizationSetBy = Automatic
+
+	column always_valid_p_final
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 09dd15dc-e6ae-58e0-ae07-1de33b9e40d6
+		summarizeBy: none
+		sourceColumn: always_valid_p_final
+
+		annotation SummarizationSetBy = Automatic
+
+	column sig_raw
+		dataType: boolean
+		lineageTag: 195e44a1-be9b-5c3e-86b4-fa7724f84fe8
+		summarizeBy: none
+		sourceColumn: sig_raw
+
+		annotation SummarizationSetBy = Automatic
+
+	column sig_holm
+		dataType: boolean
+		lineageTag: 721962d0-7733-5bf0-a6e5-262deaece59d
+		summarizeBy: none
+		sourceColumn: sig_holm
+
+		annotation SummarizationSetBy = Automatic
+
+	column sig_bh
+		dataType: boolean
+		lineageTag: 82020d0d-82ed-590d-a124-9f44232aa411
+		summarizeBy: none
+		sourceColumn: sig_bh
+
+		annotation SummarizationSetBy = Automatic
+
+	column mde_rel_80
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 68a6dec2-5247-5d6b-ba6b-242e91c894c6
+		summarizeBy: none
+		sourceColumn: mde_rel_80
+
+		annotation SummarizationSetBy = Automatic
+
+	column ratio_status
+		dataType: string
+		lineageTag: e692294e-dd4f-5822-86f9-b87e7fc13d3a
+		summarizeBy: none
+		sourceColumn: ratio_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column eb_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: da431d12-8157-57d9-b4e3-19e259892de0
+		summarizeBy: none
+		sourceColumn: eb_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column shrink_factor
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 7faf33bf-60b6-5f6f-b9e0-e849631e8cfe
+		summarizeBy: none
+		sourceColumn: shrink_factor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition final_results = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "final_results"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"arm_id", type text}, {"experiment_id", type text}, {"metric_id", Int64.Type}, {"metric_name", type text}, {"horizon_days", type number}, {"looks", Int64.Type}, {"n_c", Int64.Type}, {"n_t", Int64.Type}, {"mean_c", type number}, {"mean_t", type number}, {"z", type number}, {"rel_lift", type number}, {"rel_ci_low", type number}, {"rel_ci_high", type number}, {"p_value", type number}, {"p_holm", type number}, {"p_bh", type number}, {"always_valid_p_final", type number}, {"sig_raw", type logical}, {"sig_holm", type logical}, {"sig_bh", type logical}, {"mde_rel_80", type number}, {"ratio_status", type text}, {"eb_lift", type number}, {"shrink_factor", type number}} )
+				in
+				    Typed

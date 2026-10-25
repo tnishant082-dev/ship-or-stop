@@ -1,0 +1,84 @@
+/// One row per experiment
+table experiments
+	lineageTag: d100cc82-24ff-5193-bc35-4de856e72a8d
+
+	column experiment_id
+		dataType: string
+		formatString: 0
+		lineageTag: d39a69a0-bd04-5ed5-bdbb-aa096687ae43
+		summarizeBy: none
+		sourceColumn: experiment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: a792d6d1-f1be-5e0f-80e8-dd10389421ef
+		summarizeBy: none
+		sourceColumn: arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizon_days
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: f91c7bd4-ec06-5794-868a-e1f8f5240082
+		summarizeBy: none
+		sourceColumn: horizon_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_arm_n
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8a09db99-ea9a-5840-9453-354272360599
+		summarizeBy: none
+		sourceColumn: max_arm_n
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_looks
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 22a2e78e-5072-592f-a90f-35c841d93ed1
+		summarizeBy: none
+		sourceColumn: primary_looks
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 28701678-35a6-5c80-a14d-fa7124a4570a
+		summarizeBy: none
+		sourceColumn: ship_arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column stop_arms
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9c52158a-5bf9-575e-917b-bc9a88284137
+		summarizeBy: none
+		sourceColumn: stop_arms
+
+		annotation SummarizationSetBy = Automatic
+
+	column verdicts
+		dataType: string
+		lineageTag: 6fa3babe-ca2c-5f06-bfcf-ecb977875b8a
+		summarizeBy: none
+		sourceColumn: verdicts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition experiments = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "experiments"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"experiment_id", type text}, {"arms", Int64.Type}, {"horizon_days", type number}, {"max_arm_n", Int64.Type}, {"primary_looks", type number}, {"ship_arms", Int64.Type}, {"stop_arms", Int64.Type}, {"verdicts", type text}} )
+				in
+				    Typed

@@ -1,0 +1,165 @@
+/// Every testable checkpoint with z, OBF boundary and always-valid p
+table checkpoints
+	lineageTag: 9d025347-4fbf-5a0d-8ca8-2132261b14d1
+
+	column arm_id
+		dataType: string
+		formatString: 0
+		lineageTag: 4df9d89c-b0fc-5ac1-adec-f72dbc900f85
+		summarizeBy: none
+		sourceColumn: arm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a44f13da-1fe5-5b6b-9f30-29f59f4ba039
+		summarizeBy: none
+		sourceColumn: metric_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column metric_name
+		dataType: string
+		lineageTag: 0487c519-1073-5b0b-a1c5-a14d4b6fe685
+		summarizeBy: none
+		sourceColumn: metric_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column look
+		dataType: int64
+		formatString: 0
+		lineageTag: 249bcbae-86c2-5db1-af25-5fe5a78abcba
+		summarizeBy: none
+		sourceColumn: look
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: c1d03175-e76e-5840-8ddc-146e1ed85a45
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		formatString: #,0
+		lineageTag: 60bb6e7f-3e86-575f-9060-e106d83cb2da
+		summarizeBy: none
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column z
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 4ffc3262-d559-524f-af56-d215f4bd00da
+		summarizeBy: none
+		sourceColumn: z
+
+		annotation SummarizationSetBy = Automatic
+
+	column rel_lift
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 9e1429c5-7478-5682-b751-aa812f783cd2
+		summarizeBy: none
+		sourceColumn: rel_lift
+
+		annotation SummarizationSetBy = Automatic
+
+	column rel_ci_low
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 5ed1242c-58a7-5226-bd3b-bd0ffdd2e418
+		summarizeBy: none
+		sourceColumn: rel_ci_low
+
+		annotation SummarizationSetBy = Automatic
+
+	column rel_ci_high
+		dataType: double
+		formatString: 0.00%
+		lineageTag: cb4f7d3f-6eea-5c09-b883-b67d88ee750d
+		summarizeBy: none
+		sourceColumn: rel_ci_high
+
+		annotation SummarizationSetBy = Automatic
+
+	column info_frac
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 8b5ecbb2-9aab-511c-b06a-c59d3973ffce
+		summarizeBy: none
+		sourceColumn: info_frac
+
+		annotation SummarizationSetBy = Automatic
+
+	column always_valid_p
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: cb9174e9-0dec-59b6-9989-7012b3b88753
+		summarizeBy: none
+		sourceColumn: always_valid_p
+
+		annotation SummarizationSetBy = Automatic
+
+	column p_naive
+		dataType: double
+		formatString: 0.00E+00
+		lineageTag: e714582a-6d43-51a5-aa78-ce6ae3f4799e
+		summarizeBy: none
+		sourceColumn: p_naive
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_upper
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 4a989a6d-bda1-5ff9-8c1e-3ce9bf2b0e22
+		summarizeBy: none
+		sourceColumn: obf_upper
+
+		annotation SummarizationSetBy = Automatic
+
+	column obf_lower
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: 487ae5c0-366b-5741-baac-f5f5bc5f1190
+		summarizeBy: none
+		sourceColumn: obf_lower
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_upper
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0a6b0d86-f15a-5ee8-8f23-f74a4e4bc254
+		summarizeBy: none
+		sourceColumn: naive_upper
+
+		annotation SummarizationSetBy = Automatic
+
+	column naive_lower
+		dataType: double
+		formatString: #,0.00
+		lineageTag: fce1b9f9-2d98-5fc3-9f55-b3ab452e3fc7
+		summarizeBy: none
+		sourceColumn: naive_lower
+
+		annotation SummarizationSetBy = Automatic
+
+	partition checkpoints = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "checkpoints"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"arm_id", type text}, {"metric_id", Int64.Type}, {"metric_name", type text}, {"look", Int64.Type}, {"day", type number}, {"n", Int64.Type}, {"z", type number}, {"rel_lift", type number}, {"rel_ci_low", type number}, {"rel_ci_high", type number}, {"info_frac", type number}, {"always_valid_p", type number}, {"p_naive", type number}, {"obf_upper", type number}, {"obf_lower", type number}, {"naive_upper", type number}, {"naive_lower", type number}} )
+				in
+				    Typed

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ShipOrStop"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bb701349-e917-5c5e-9842-bde474d57217"
+  }
+}

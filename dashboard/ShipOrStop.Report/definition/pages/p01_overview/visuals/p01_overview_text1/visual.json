@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "p01_overview_text1",
+  "position": {
+    "x": 1216,
+    "y": 636,
+    "z": 501,
+    "width": 684,
+    "height": 420,
+    "tabOrder": 501
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "What the program should change",
+                    "textStyle": {
+                      "fontSize": "18pt",
+                      "color": "#323130",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. Daily peeking at 1.96 gives ~19% false positives. Move to an O'Brien-Fleming plan: 5% error and a median 25 days earlier.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. 9 of 99 arms fail SRM. Gate readouts on a chi-square check.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. 1 in 7 arms wins, 1 in 10 hurts. Inconclusive is the norm, not a failure.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4. Report shrunk lifts in roadmaps: noisy wins shrink hard.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "5. The 4 metrics move together (z corr 0.89-0.97): one guardrail would do.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "color": "#323130"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

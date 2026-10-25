@@ -1,0 +1,96 @@
+/// Program health KPI tree
+table metric_tree
+	lineageTag: 48a2b570-ddac-594c-94ab-503c8247508f
+
+	column node_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ae3e13ab-8584-5ffc-8ce6-62e60080194b
+		summarizeBy: none
+		sourceColumn: node_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column root
+		dataType: string
+		lineageTag: e4aba39a-4d26-5a9a-b0b3-1ddcda951b9f
+		summarizeBy: none
+		sourceColumn: root
+
+		annotation SummarizationSetBy = Automatic
+
+	column branch
+		dataType: string
+		lineageTag: d1c0d50a-bb5d-53f0-ac0f-78bbd5250081
+		summarizeBy: none
+		sourceColumn: branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column kpi
+		dataType: string
+		lineageTag: 2f6a5e8f-888c-595e-b1ac-76c6924fe1fc
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = Automatic
+
+	column value
+		dataType: double
+		formatString: #,0.0000
+		lineageTag: baab039c-6dff-550e-8ffa-af5fd9036a40
+		summarizeBy: none
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column target
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0cd26c6a-96e0-5925-80a8-f443045bee71
+		summarizeBy: none
+		sourceColumn: target
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit
+		dataType: string
+		lineageTag: 4049d4fb-dc3e-53fb-8e45-90b6a34be9e9
+		summarizeBy: none
+		sourceColumn: unit
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 7b5ae699-f1c6-5150-af52-3c8bfaa42b3c
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column value_display
+		dataType: string
+		lineageTag: 708da5d6-192a-5d7d-9a32-0876deecde43
+		summarizeBy: none
+		sourceColumn: value_display
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_display
+		dataType: string
+		lineageTag: 655a818e-6fbf-587a-860f-dc7371d882bf
+		summarizeBy: none
+		sourceColumn: target_display
+
+		annotation SummarizationSetBy = Automatic
+
+	partition metric_tree = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "metric_tree"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"node_id", Int64.Type}, {"root", type text}, {"branch", type text}, {"kpi", type text}, {"value", type number}, {"target", type number}, {"unit", type text}, {"status", type text}, {"value_display", type text}, {"target_display", type text}} )
+				in
+				    Typed

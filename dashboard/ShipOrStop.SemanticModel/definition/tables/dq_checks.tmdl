@@ -1,0 +1,72 @@
+/// Data quality checks (raw file and staging)
+table dq_checks
+	lineageTag: 445230b4-b157-5da4-ac6e-6405fda6627b
+
+	column check_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d8d92206-d3c6-5ab5-9e79-746c2ef9d3b6
+		summarizeBy: none
+		sourceColumn: check_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column layer
+		dataType: string
+		lineageTag: 2c680760-b1fd-53e8-932f-66f4a55ca154
+		summarizeBy: none
+		sourceColumn: layer
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_name
+		dataType: string
+		lineageTag: 87b71bcf-fc77-56bd-8678-6d1f5591946a
+		summarizeBy: none
+		sourceColumn: check_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column severity
+		dataType: string
+		lineageTag: 89b51ac3-9d73-5b04-8a57-f935aedb88bc
+		summarizeBy: none
+		sourceColumn: severity
+
+		annotation SummarizationSetBy = Automatic
+
+	column failed_rows
+		dataType: int64
+		formatString: #,0
+		lineageTag: d4fea01f-13c1-542b-a137-ef50c7b6bd4c
+		summarizeBy: none
+		sourceColumn: failed_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_rows
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1da8b9f8-f73b-58a7-a23d-285732d52136
+		summarizeBy: none
+		sourceColumn: total_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column passed
+		dataType: boolean
+		lineageTag: 1f3e4963-c5c5-5a2e-b63b-62043961e028
+		summarizeBy: none
+		sourceColumn: passed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dq_checks = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database ( PgServer, PgDatabase ),
+				    View = Source{[Schema = "bi", Item = "dq_checks"]}[Data],
+				    Typed = Table.TransformColumnTypes ( View, {{"check_id", Int64.Type}, {"layer", type text}, {"check_name", type text}, {"severity", type text}, {"failed_rows", Int64.Type}, {"total_rows", Int64.Type}, {"passed", type logical}} )
+				in
+				    Typed

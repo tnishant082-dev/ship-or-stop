@@ -1,0 +1,4 @@
+rule,rule_order,arms_stopped,wrong_calls,agrees_with_fixed,median_days_saved
+Naive 1.96,1,46,20,,
+O'Brien-Fleming,2,30,6,24.0,25.25
+mSPRT,3,20,2,18.0,28.25

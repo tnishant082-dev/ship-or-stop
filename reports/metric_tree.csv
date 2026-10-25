@@ -1,0 +1,13 @@
+node_id,root,branch,kpi,value,target,unit,status,value_display,target_display
+1,Program health,Trust,Arms with a healthy sample ratio,0.8787878787878788,0.95,share,off target,87.9%,95.0%
+2,Program health,Trust,Data quality errors,0.0,0,count,on target,0,0
+3,Program health,Trust,False positive rate of the stopping rule in use (naive peeking),0.1877979797979798,0.05,share,off target,18.8%,5.0%
+4,Program health,Speed,Median days to a decision (full horizon),43.5,28,days,off target,43.5 days,28 days
+5,Program health,Speed,Median days saved by O'Brien-Fleming,25.25,14,days,on target,25.2 days,14 days
+6,Program health,Speed,Arm-days that OBF would have freed,748.5,,days,info,748.5 days,-
+7,Program health,Impact,Ship rate,0.1414141414141414,0.20,share,off target,14.1%,20.0%
+8,Program health,Impact,Average observed lift of shipped arms,0.010008269701025625,,share,info,1.0%,-
+9,Program health,Impact,Average shrunk lift of shipped arms,0.009537257621778553,,share,info,1.0%,-
+10,Program health,Risk,Harm rate (primary or guardrail),0.10101010101010101,0.10,share,off target,10.1%,10.0%
+11,Program health,Risk,Primary arms a naive peek would have called wrongly,20.0,0,count,off target,20,0
+12,Program health,Risk,Median relative MDE at 80% power,0.0042499269622489014,0.01,share,on target,0.4%,1.0%

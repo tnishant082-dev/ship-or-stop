@@ -1,0 +1,28 @@
+check_id,layer,check_name,severity,failed_rows,total_rows,passed
+153,raw-file,all expected columns present,error,0,24153,True
+154,raw-file,no duplicate experiment/variant/metric/checkpoint keys,error,0,24153,True
+155,raw-file,metric_id in 1..4,error,0,24153,True
+156,raw-file,counts are non-negative,error,0,24153,True
+157,raw-file,"empty checkpoints (all-zero rows, a logging gap)",warn,8,24153,False
+158,raw-file,counts are whole numbers,error,0,24153,True
+159,raw-file,time_since_start is non-negative,error,0,24153,True
+160,raw-file,"binary metric means within [0, 1]",error,0,24153,True
+161,raw-file,non-negative means,error,0,24153,True
+162,raw-file,variances non-negative when present,error,0,24153,True
+163,raw-file,variance present (rows without it cannot be tested),warn,779,24153,False
+164,raw-file,binary metric variance matches p(1-p),warn,0,24153,True
+165,raw-file,cumulative counts never decrease,warn,8,24153,False
+166,staging,raw rows reconcile to staging + duplicates,error,0,24153,True
+167,staging,duplicate checkpoint keys in raw,error,0,24153,True
+168,staging,"binary metric means inside [0, 1]",error,0,24153,True
+169,staging,cumulative sample size never decreases,warn,8,24153,False
+170,staging,"empty checkpoints (all-zero rows, logging gap)",warn,8,24153,False
+171,staging,rows not testable (missing variance or n <= 1),warn,787,24153,False
+172,staging,arm sample size differs across metrics at a checkpoint,warn,0,24153,True
+173,staging,variants of one experiment report different control n,warn,0,24153,True
+174,staging,series with fewer than 4 testable looks,warn,22,396,False
+175,staging,checkpoint spacing not 12h or 24h,warn,124,24153,False
+176,staging,gaps longer than 3 days between checkpoints,warn,16,24153,False
+177,staging,arms without a testable primary metric,error,0,99,True
+178,mart,one-checkpoint z spikes (> 3 and back),warn,49,23366,False
+179,mart,final reads per arm x metric equal staging series,error,0,381,True

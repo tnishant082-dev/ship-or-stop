@@ -1,0 +1,89 @@
+alpha,ni_margin,verdict,arms,alpha_label,margin_label
+0.01,0.0,HOLD: confirm allocation,3,alpha 0.01,margin 0.0%
+0.01,0.0,INCONCLUSIVE,61,alpha 0.01,margin 0.0%
+0.01,0.0,INVALID: SRM,9,alpha 0.01,margin 0.0%
+0.01,0.0,SHIP,6,alpha 0.01,margin 0.0%
+0.01,0.0,SHIP WITH CAUTION,4,alpha 0.01,margin 0.0%
+0.01,0.0,STOP: guardrail breach,9,alpha 0.01,margin 0.0%
+0.01,0.0,STOP: primary harm,7,alpha 0.01,margin 0.0%
+0.01,0.005,HOLD: confirm allocation,3,alpha 0.01,margin 0.5%
+0.01,0.005,INCONCLUSIVE,68,alpha 0.01,margin 0.5%
+0.01,0.005,INVALID: SRM,9,alpha 0.01,margin 0.5%
+0.01,0.005,SHIP,9,alpha 0.01,margin 0.5%
+0.01,0.005,SHIP WITH CAUTION,1,alpha 0.01,margin 0.5%
+0.01,0.005,STOP: guardrail breach,2,alpha 0.01,margin 0.5%
+0.01,0.005,STOP: primary harm,7,alpha 0.01,margin 0.5%
+0.01,0.01,HOLD: confirm allocation,3,alpha 0.01,margin 1.0%
+0.01,0.01,INCONCLUSIVE,70,alpha 0.01,margin 1.0%
+0.01,0.01,INVALID: SRM,9,alpha 0.01,margin 1.0%
+0.01,0.01,SHIP,10,alpha 0.01,margin 1.0%
+0.01,0.01,STOP: primary harm,7,alpha 0.01,margin 1.0%
+0.01,0.02,HOLD: confirm allocation,3,alpha 0.01,margin 2.0%
+0.01,0.02,INCONCLUSIVE,70,alpha 0.01,margin 2.0%
+0.01,0.02,INVALID: SRM,9,alpha 0.01,margin 2.0%
+0.01,0.02,SHIP,10,alpha 0.01,margin 2.0%
+0.01,0.02,STOP: primary harm,7,alpha 0.01,margin 2.0%
+0.01,0.03,HOLD: confirm allocation,3,alpha 0.01,margin 3.0%
+0.01,0.03,INCONCLUSIVE,70,alpha 0.01,margin 3.0%
+0.01,0.03,INVALID: SRM,9,alpha 0.01,margin 3.0%
+0.01,0.03,SHIP,10,alpha 0.01,margin 3.0%
+0.01,0.03,STOP: primary harm,7,alpha 0.01,margin 3.0%
+0.05,0.0,HOLD: confirm allocation,3,alpha 0.05,margin 0.0%
+0.05,0.0,INCONCLUSIVE,52,alpha 0.05,margin 0.0%
+0.05,0.0,INVALID: SRM,9,alpha 0.05,margin 0.0%
+0.05,0.0,SHIP,7,alpha 0.05,margin 0.0%
+0.05,0.0,SHIP WITH CAUTION,7,alpha 0.05,margin 0.0%
+0.05,0.0,STOP: guardrail breach,11,alpha 0.05,margin 0.0%
+0.05,0.0,STOP: primary harm,10,alpha 0.05,margin 0.0%
+0.05,0.005,HOLD: confirm allocation,3,alpha 0.05,margin 0.5%
+0.05,0.005,INCONCLUSIVE,60,alpha 0.05,margin 0.5%
+0.05,0.005,INVALID: SRM,9,alpha 0.05,margin 0.5%
+0.05,0.005,SHIP,13,alpha 0.05,margin 0.5%
+0.05,0.005,SHIP WITH CAUTION,1,alpha 0.05,margin 0.5%
+0.05,0.005,STOP: guardrail breach,3,alpha 0.05,margin 0.5%
+0.05,0.005,STOP: primary harm,10,alpha 0.05,margin 0.5%
+0.05,0.01,HOLD: confirm allocation,3,alpha 0.05,margin 1.0%
+0.05,0.01,INCONCLUSIVE,63,alpha 0.05,margin 1.0%
+0.05,0.01,INVALID: SRM,9,alpha 0.05,margin 1.0%
+0.05,0.01,SHIP,14,alpha 0.05,margin 1.0%
+0.05,0.01,STOP: primary harm,10,alpha 0.05,margin 1.0%
+0.05,0.02,HOLD: confirm allocation,3,alpha 0.05,margin 2.0%
+0.05,0.02,INCONCLUSIVE,63,alpha 0.05,margin 2.0%
+0.05,0.02,INVALID: SRM,9,alpha 0.05,margin 2.0%
+0.05,0.02,SHIP,14,alpha 0.05,margin 2.0%
+0.05,0.02,STOP: primary harm,10,alpha 0.05,margin 2.0%
+0.05,0.03,HOLD: confirm allocation,3,alpha 0.05,margin 3.0%
+0.05,0.03,INCONCLUSIVE,63,alpha 0.05,margin 3.0%
+0.05,0.03,INVALID: SRM,9,alpha 0.05,margin 3.0%
+0.05,0.03,SHIP,14,alpha 0.05,margin 3.0%
+0.05,0.03,STOP: primary harm,10,alpha 0.05,margin 3.0%
+0.10,0.0,HOLD: confirm allocation,3,alpha 0.10,margin 0.0%
+0.10,0.0,INCONCLUSIVE,46,alpha 0.10,margin 0.0%
+0.10,0.0,INVALID: SRM,9,alpha 0.10,margin 0.0%
+0.10,0.0,SHIP,9,alpha 0.10,margin 0.0%
+0.10,0.0,SHIP WITH CAUTION,8,alpha 0.10,margin 0.0%
+0.10,0.0,STOP: guardrail breach,11,alpha 0.10,margin 0.0%
+0.10,0.0,STOP: primary harm,13,alpha 0.10,margin 0.0%
+0.10,0.005,HOLD: confirm allocation,3,alpha 0.10,margin 0.5%
+0.10,0.005,INCONCLUSIVE,54,alpha 0.10,margin 0.5%
+0.10,0.005,INVALID: SRM,9,alpha 0.10,margin 0.5%
+0.10,0.005,SHIP,15,alpha 0.10,margin 0.5%
+0.10,0.005,SHIP WITH CAUTION,2,alpha 0.10,margin 0.5%
+0.10,0.005,STOP: guardrail breach,3,alpha 0.10,margin 0.5%
+0.10,0.005,STOP: primary harm,13,alpha 0.10,margin 0.5%
+0.10,0.01,HOLD: confirm allocation,3,alpha 0.10,margin 1.0%
+0.10,0.01,INCONCLUSIVE,56,alpha 0.10,margin 1.0%
+0.10,0.01,INVALID: SRM,9,alpha 0.10,margin 1.0%
+0.10,0.01,SHIP,17,alpha 0.10,margin 1.0%
+0.10,0.01,STOP: guardrail breach,1,alpha 0.10,margin 1.0%
+0.10,0.01,STOP: primary harm,13,alpha 0.10,margin 1.0%
+0.10,0.02,HOLD: confirm allocation,3,alpha 0.10,margin 2.0%
+0.10,0.02,INCONCLUSIVE,57,alpha 0.10,margin 2.0%
+0.10,0.02,INVALID: SRM,9,alpha 0.10,margin 2.0%
+0.10,0.02,SHIP,17,alpha 0.10,margin 2.0%
+0.10,0.02,STOP: primary harm,13,alpha 0.10,margin 2.0%
+0.10,0.03,HOLD: confirm allocation,3,alpha 0.10,margin 3.0%
+0.10,0.03,INCONCLUSIVE,57,alpha 0.10,margin 3.0%
+0.10,0.03,INVALID: SRM,9,alpha 0.10,margin 3.0%
+0.10,0.03,SHIP,17,alpha 0.10,margin 3.0%
+0.10,0.03,STOP: primary harm,13,alpha 0.10,margin 3.0%

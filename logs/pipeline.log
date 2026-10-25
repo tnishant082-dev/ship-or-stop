@@ -1,0 +1,27 @@
+2026-10-25 18:15:21,714 INFO raw check all expected columns present                            error failed=0
+2026-10-25 18:15:21,715 INFO raw check no duplicate experiment/variant/metric/checkpoint keys  error failed=0
+2026-10-25 18:15:21,715 INFO raw check metric_id in 1..4                                       error failed=0
+2026-10-25 18:15:21,715 INFO raw check counts are non-negative                                 error failed=0
+2026-10-25 18:15:21,715 INFO raw check empty checkpoints (all-zero rows, a logging gap)        warn  failed=8
+2026-10-25 18:15:21,715 INFO raw check counts are whole numbers                                error failed=0
+2026-10-25 18:15:21,715 INFO raw check time_since_start is non-negative                        error failed=0
+2026-10-25 18:15:21,716 INFO raw check binary metric means within [0, 1]                       error failed=0
+2026-10-25 18:15:21,716 INFO raw check non-negative means                                      error failed=0
+2026-10-25 18:15:21,716 INFO raw check variances non-negative when present                     error failed=0
+2026-10-25 18:15:21,716 INFO raw check variance present (rows without it cannot be tested)     warn  failed=779
+2026-10-25 18:15:21,716 INFO raw check binary metric variance matches p(1-p)                   warn  failed=0
+2026-10-25 18:15:21,716 INFO raw check cumulative counts never decrease                        warn  failed=8
+2026-10-25 18:15:21,860 INFO 00_schemas.sql               0.1s
+2026-10-25 18:15:21,916 INFO 01_stats_functions.sql       0.1s
+2026-10-25 18:15:22,047 INFO loaded 24153 rows into raw.asos_checkpoints
+2026-10-25 18:15:22,173 INFO 02_staging.sql               0.1s
+2026-10-25 18:15:22,301 INFO 03_dq_checks.sql             0.1s
+2026-10-25 18:15:27,382 INFO 04_marts_checkpoints.sql     5.1s
+2026-10-25 18:15:27,431 INFO obf boundaries + null replay on 381 series
+2026-10-25 18:15:32,360 INFO python marts: 23366 boundary rows, 99 null replays (5.0s)
+2026-10-25 18:15:35,195 INFO 05_marts_verdicts.sql        2.8s
+2026-10-25 18:15:35,387 INFO 06_marts_portfolio.sql       0.2s
+2026-10-25 18:15:35,415 INFO 07_bi_views.sql              0.0s
+2026-10-25 18:15:35,419 INFO experiments=78 arms=99 ship=14 stop=10 inconclusive=63 untrusted=12
+2026-10-25 18:15:35,419 INFO null FPR fixed=0.050 naive=0.188 obf=0.051 msprt=0.010
+2026-10-25 18:15:35,419 INFO done in 14s

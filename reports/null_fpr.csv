@@ -1,0 +1,5 @@
+rule,rule_order,false_positive_rate
+Fixed horizon,1,0.05034006734006734
+Naive peeking,2,0.1877979797979798
+O'Brien-Fleming,3,0.051148148148148144
+mSPRT,4,0.010124579124579128

@@ -1,0 +1,6 @@
+verdict,outcome,arms,verdict_order
+STOP: primary harm,loss,10,5
+HOLD: confirm allocation,untrusted,3,6
+INVALID: SRM,untrusted,9,7
+SHIP,win,14,1
+INCONCLUSIVE,flat,63,3

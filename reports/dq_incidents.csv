@@ -1,0 +1,13 @@
+incident,arm_id,metric_id,day,detail
+sample size went down,4db6c7/v2,1,18.0,"control 637172 -> 637172, treatment 636737 -> 633555"
+sample size went down,b3280a/v1,1,30.0,"control 2936962 -> 2949262, treatment 2934009 -> 2928493"
+empty checkpoint,64dc88/v1,1,3.0,all counts and stats are zero
+empty checkpoint,64dc88/v2,1,3.0,all counts and stats are zero
+gap > 3 days,036afc/v2,1,44.5,10 days since previous checkpoint
+gap > 3 days,26bd38/v1,1,13.5,8 days since previous checkpoint
+gap > 3 days,3fef62/v2,1,43.0,10 days since previous checkpoint
+gap > 3 days,8e0f8a/v1,1,49.5,15 days since previous checkpoint
+one-checkpoint z spike,162a38/v1,1,38.0,z -0.52 -> 4.21 -> -0.33
+one-checkpoint z spike,a4386f/v1,1,25.5,z 2.56 -> -1.04 -> 2.83
+one-checkpoint z spike,a4386f/v1,1,55.5,z 3.59 -> 6.60 -> 3.36
+one-checkpoint z spike,b3280a/v1,1,30.0,z 15.95 -> 19.45 -> 15.86
